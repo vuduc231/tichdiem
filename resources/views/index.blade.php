@@ -10,21 +10,21 @@
                     <div class="slider_wrapper">
                         <div class="slider_items">
                             <a class="slider_thumb" href="#"
-                                style="background-image: url(/assets/img/Banner-1.webp);"></a>
+                                style="background-image: url({{ asset('/assets/img/Banner-1.webp') }});"></a>
                         </div>
                         <div class="slider_items">
                             <a class="slider_thumb" href="#"
-                                style="background-image: url(/assets/img/Banner-1.webp);"></a>
+                                style="background-image: url({{ asset('/assets/img/Banner-1.webp') }});"></a>
                         </div>
 
                     </div>
                 </div>
                 <div class="col">
                     <div class="img_item mb-2">
-                        <img src="/assets/img/Banner-1.webp" alt="">
+                        <img src="{{ asset('/assets/img/Banner-1.webp') }}" alt="">
                     </div>
                     <div class="img_item mb-2">
-                        <img src="/assets/img/new-banner-2.webp" alt="">
+                        <img src="{{ asset('/assets/img/new-banner-2.webp') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -187,143 +187,33 @@
                             <span>NHÓM SẢN PHẨM DÀNH CHO PHỤ NỮ</span>
                         </div>
                         <div class="product_seemore">
-                            <a href="#">Xem thêm</a>
+                            <a href="https://doppelherz.vn/san-pham/" target="_blank" >Xem thêm</a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="product_with-img">
-                                <img src="/assets/img/Banner_Woman.webp" alt="">
+                                <img src="{{ asset('/assets/img/Banner_Woman.webp') }}" alt="">
                             </div>
                         </div>
                         <div class="col-md-12 col-xl-8">
                             <div class="row product_slider-wrapper">
+                                @foreach($categoryWoman['data'] as $womanValue)
                                 <div class="col-md product_slider-items">
                                     <div class="product_slider-content">
                                         <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
+                                            <img class="product_slider-thumb" src="{{ $womanValue['image'] }}"
+                                                alt="{{ $womanValue['name'] }}">
                                         </div>
                                         <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
+                                            <h3>{{ $womanValue['name'] }}</h3>
                                         </div>
                                         <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
+                                            <a href="{{ $womanValue['link_product'] }}" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -342,143 +232,33 @@
                             <span>NHÓM SẢN PHẨM DÀNH CHO NAM GIỚI</span>
                         </div>
                         <div class="product_seemore">
-                            <a href="#">Xem thêm</a>
+                            <a href="https://doppelherz.vn/san-pham/" target="_blank" >Xem thêm</a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="product_with-img">
-                                <img src="/assets/img/Banner_Man.webp" alt="">
+                                <img src="{{ asset('/assets/img/Banner_Man.webp') }}" alt="">
                             </div>
                         </div>
                         <div class="col-md-12 col-xl-8">
                             <div class="row product_slider-wrapper">
+                                @foreach($categoryMen['data'] as $menValue)
                                 <div class="col-md product_slider-items">
                                     <div class="product_slider-content">
                                         <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
+                                            <img class="product_slider-thumb" src="{{ $menValue['image'] }}"
+                                                alt="{{ $menValue['name'] }}">
                                         </div>
                                         <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
+                                            <h3>{{ $menValue['name'] }}</h3>
                                         </div>
                                         <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
+                                            <a href="{{ $menValue['link_product'] }}" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -488,7 +268,7 @@
         </div>
     </section>
 
-    <section class="product pb-5" id="product_man">
+    <section class="product pb-5" id="product_child">
         <div class="container">
             <div class="card">
                 <div class="card-body card-body_home">
@@ -497,143 +277,34 @@
                             <span>NHÓM SẢN PHẨM DÀNH CHO TRẺ EM</span>
                         </div>
                         <div class="product_seemore">
-                            <a href="#">Xem thêm</a>
+                            <a href="https://doppelherz.vn/san-pham/" target="_blank" >Xem thêm</a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="product_with-img">
-                                <img src="/assets/img/Banner_Child.webp" alt="">
+                                <img src="{{ asset('/assets/img/Banner_Child.webp') }}" alt="">
                             </div>
                         </div>
                         <div class="col-md-12 col-xl-8">
                             <div class="row product_slider-wrapper">
+                                @foreach($categoryChild['data'] as $childValue)
                                 <div class="col-md product_slider-items">
                                     <div class="product_slider-content">
                                         <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
+                                            <img class="product_slider-thumb" src="{{ $childValue['image'] }}"
+                                                alt="{{ $childValue['name'] }}">
                                         </div>
                                         <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
+                                            <h3>{{ $childValue['name'] }}</h3>
                                         </div>
                                         <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
+                                            <a href="{{ $childValue['link_product'] }}" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md product_slider-items">
-                                    <div class="product_slider-content">
-                                        <div class="product_slider-img">
-                                            <img class="product_slider-thumb" src="/assets/img/product.png"
-                                                alt="">
-                                        </div>
-                                        <div class="product_slider-title">
-                                            <h3>Magnesium + Calciium + Calciium + Calcium + D3</h3>
-                                        </div>
-                                        <div class="product_slider-action">
-                                            <a href="#" target="_blank" class="btn btn-danger">Mua sản phẩm</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+                                
                             </div>
                         </div>
                     </div>
@@ -682,6 +353,36 @@
     </section>
     <!-- ======= End Catalog ======= -->
 @endsection
+
+<!-- Modal -->
+<div class="modal fade" id="gift_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal_gift">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="exampleModalLabel">Danh sách phần quà</div>
+                <div type="button" class="gift_close" data-mdb-dismiss="modal">
+                    <i class="fa-solid fa-xmark" style="color: #c42726;"></i>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    @foreach($thongTinQuaTang as $value)
+                    <div class="col-xl-2 mb-3">
+                        <div class="gift_wrapper">
+                            <div class="gift_img">
+                                <img src="{{ $value['image'] }}" alt="">
+                            </div>
+                            <div class="gift_title">
+                                <h5>{{ $value['name'] }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section('scripts')
     <script type="text/javascript">

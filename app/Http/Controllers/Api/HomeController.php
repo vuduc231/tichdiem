@@ -4,25 +4,32 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Services\ApiServices;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    //contructor
-    public function __construct()
+    protected $apiService;
+
+    public function __construct(ApiServices $apiService)
     {
-        // $this->middleware('auth');
-        // $this->dwtServices = new DwtServices();
+        $this->apiService = $apiService;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        return view('index');
+        $thongTinQuaTang = $this->apiService->getThongTinQuaTang();
+
+        $categoryChild = $this->apiService->getCategory(4);
+        $categoryMen = $this->apiService->getCategory(3);
+        $categoryWoman = $this->apiService->getCategory(2);
+        // dd($categoryChild);
+        return view('index')
+        ->with('categoryChild', $categoryChild)
+        ->with('categoryMen', $categoryMen)
+        ->with('categoryWoman', $categoryWoman)
+        ->with('thongTinQuaTang', $thongTinQuaTang);
     }
 
     /**

@@ -39,12 +39,12 @@
                             </li>
                         </ul>
                     </li>
-                    <!-- <li class="header_menu-items">
+                    <li class="header_menu-items">
                         <a href="#" class="header_menu-link">
                             <span>Đăng nhập/Đăng ký</span>
                         </a>
-                    </li> -->
-                    <li class="header_menu-items">
+                    </li>
+                    {{-- <li class="header_menu-items">
                         <a href="#" class="header_menu-link header_menu-subbtn">
                             <span class="pe-2">Tài khoản</span>
                             <i class="fa-solid fa-chevron-down"></i>
@@ -66,7 +66,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="open_menu-btn">
                     <i class="fa-solid fa-bars"></i>

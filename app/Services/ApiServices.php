@@ -2,47 +2,29 @@
 
 namespace App\Services;
 
-use Exception;
-use GuzzleHttp\Middleware;
-use Illuminate\Support\Facades\Http;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Termwind\Components\Dd;
+use GuzzleHttp\Client;
 
 class ApiServices
 {
+    protected $client;
 
-    private mixed $client;
-    protected string $url;
-
-    public function __construct()
+    public function __construct(Client $client)
     {
-        $this->url = env('API_URL', '');
-        //add middleware to attach token to request
-        
-    }
-    //private helper function to transform response array to object
-    private function _toObject($array)
-    {
-        $objectStr = json_encode($array);
-        $object = json_decode($objectStr);
-        return $object;
+        $this->client = $client;
     }
 
-    public function login($email, $password)
+    public function getThongTinQuaTang()
     {
-        $url = $this->url . '/auth/login';
-        $response = $this->client->post($url, [
-            'email' => $email,
-            'password' => $password
-        ]);
-        //throw exception if response is not successful
-        $response->throw();
-        //get data from response
-        $response->throw()->json()['message'];
+        $response = $this->client->request('GET', 'https://qrcode.sweetsica.com/api/thongtinquatang');
 
-        $data = $response->json();
-        return $data['data'];
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    public function getCategory($categoryId)
+    {
+        $response = $this->client->request('GET', "https://qrcode.sweetsica.com/api/get-category/$categoryId");
+
+        return json_decode($response->getBody()->getContents(), true);
     }
 
 }
