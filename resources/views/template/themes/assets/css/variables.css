@@ -1,0 +1,109 @@
+:root {
+    /********* Color  *********/
+    --primary-color: #c42726;
+    --primary-color-medium: #dc2626;
+    --primary-color-bold: #770d0a;
+    --white-color: #fff;
+    --black-color: #000;
+    --cream-color: #fbf4ed;
+
+    /********* Border Radius  *********/
+    --border-radius-main: 8px;
+    --border-radius-mini: 4px;
+
+    /********* FontSize  *********/
+    --fz-10: 1rem;
+    --fz-12: 1.2rem;
+    --fz-14: 1.4rem;
+    --fz-16: 1.6rem;
+    --fz-18: 1.8rem;
+    --fz-20: 2rem;
+    --fz-22: 2.2rem;
+    --fz-24: 2.4rem;
+    --fz-26: 2.6rem;
+    --fz-28: 2.8rem;
+    --fz-30: 3rem;
+}
+
+/********* GLOBAL  *********/
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    overscroll-behavior: contain;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+}
+
+.txt-mini {
+    font-size: var(--fz-10);
+}
+
+.txt-medium {
+    font-size: var(--fz-12);
+}
+
+.txt-big {
+    font-size: var(--fz-14);
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+/********* Scrollbar  *********/
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+    height: 56px;
+    -webkit-border-radius: var(--border-radius-main);
+    -moz-border-radius: var(--border-radius-main);
+    border-radius: var(--border-radius-main);
+    border: 2px solid transparent;
+    background-clip: content-box;
+    background-color: #aaa;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #4e4e4e;
+}
+
+/********* Bootstrap Overide  *********/
+.card {
+    border-radius: var(--border-radius-main);
+}
+.card_title {
+    font-size: var(--fz-24);
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/********* Animation  *********/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

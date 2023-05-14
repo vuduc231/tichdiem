@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\RuleController;
+use App\Http\Controllers\Api\PrivacyController;
+use App\Http\Controllers\Api\TermsController;
+use App\Http\Controllers\Api\GiftController;
+use App\Http\Controllers\Api\HistoryController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +20,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Home
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Privacy
+Route::get('/chinh-sach-bao-mat', [PrivacyController::class, 'index'])->name('privacy');
+
+// Terms
+Route::get('/dieu-khoan-su-dung', [TermsController::class, 'index'])->name('terms');
+
+// Rule
+Route::get('/the-le', [RuleController::class, 'index'])->name('rule');
+
+// Gift
+Route::get('/doi-qua', [GiftController::class, 'index'])->name('gift');
+
+// History
+Route::get('/lich-su-doi-qua', [HistoryController::class, 'index'])->name('history');
