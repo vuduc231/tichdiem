@@ -370,7 +370,7 @@
                     <div class="col-xl-2 mb-3">
                         <div class="gift_wrapper">
                             <div class="gift_img">
-                                <img src="{{ $value['image'] }}" alt="">
+                                <img src="{{ $value['image'] }}" alt="{{ $value['name'] }}">
                             </div>
                             <div class="gift_title">
                                 <h5>{{ $value['name'] }}</h5>

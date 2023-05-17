@@ -4,16 +4,17 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Services\ApiServices;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 
 class GiftController extends Controller
 {
-    //contructor
-    public function __construct()
+    protected $apiServices;
+
+    public function __construct(ApiServices $apiServices)
     {
-        // $this->middleware('auth');
-        // $this->dwtServices = new DwtServices();
+        $this->apiServices = $apiServices;
     }
     /**
      * Display a listing of the resource.
@@ -22,7 +23,8 @@ class GiftController extends Controller
      */
     public function index()
     {
-        return view('page.gift.gift');
+        $thongTinQuaTang = $this->apiServices->getThongTinQuaTang();
+        return view('page.gift.gift')->with('thongTinQuaTang', $thongTinQuaTang);
     }
 
     /**

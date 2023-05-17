@@ -39,12 +39,8 @@
                             </li>
                         </ul>
                     </li>
+                    @if (Session::has('user'))
                     <li class="header_menu-items">
-                        <a href="#" class="header_menu-link">
-                            <span>Đăng nhập/Đăng ký</span>
-                        </a>
-                    </li>
-                    {{-- <li class="header_menu-items">
                         <a href="#" class="header_menu-link header_menu-subbtn">
                             <span class="pe-2">Tài khoản</span>
                             <i class="fa-solid fa-chevron-down"></i>
@@ -61,12 +57,24 @@
                                 </a>
                             </li>
                             <li class="header_submenu-items">
-                                <a href="#" class="header_submenu-link">
-                                    <span>Đăng xuất</span>
-                                </a>
+                                <form action="/logout" method="POST" class="m-0">
+                                    @csrf
+                                {{-- <a href="#" class="header_submenu-link"> --}}
+                                    <button class="header_submenu-link bg-transparent border-0" style="padding: 25px 28px;" type="submit">
+                                        <span>Đăng xuất</span>
+                                    </button>
+                                </form>
+                                {{-- </a> --}}
                             </li>
                         </ul>
-                    </li> --}}
+                    </li>
+                    @else
+                    <li class="header_menu-items">
+                        <a href="#" class="header_menu-link">
+                            <span data-mdb-toggle="modal" data-mdb-target="#loginRegister">Đăng nhập/Đăng ký</span>
+                        </a>
+                    </li>
+                    @endif
                 </ul>
                 <div class="open_menu-btn">
                     <i class="fa-solid fa-bars"></i>

@@ -10,21 +10,20 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    protected $apiService;
+    protected $apiServices;
 
-    public function __construct(ApiServices $apiService)
+    public function __construct(ApiServices $apiServices)
     {
-        $this->apiService = $apiService;
+        $this->apiServices = $apiServices;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $thongTinQuaTang = $this->apiService->getThongTinQuaTang();
-
-        $categoryChild = $this->apiService->getCategory(4);
-        $categoryMen = $this->apiService->getCategory(3);
-        $categoryWoman = $this->apiService->getCategory(2);
-        // dd($categoryChild);
+        $thongTinQuaTang = $this->apiServices->getThongTinQuaTang();
+        $categoryChild = $this->apiServices->getChild();
+        $categoryMen = $this->apiServices->getMen();
+        $categoryWoman = $this->apiServices->getWoman();
+        // dd($categoryWoman);
         return view('index')
         ->with('categoryChild', $categoryChild)
         ->with('categoryMen', $categoryMen)

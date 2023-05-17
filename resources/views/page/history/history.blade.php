@@ -25,29 +25,30 @@
                             </div>
                             <div class="history_company-point text-end">
                                 <div class="history_company-point-title mb-3">
-                                    Điểm thưởng: <strong class="text-danger">99999999</strong>
+                                    Điểm thưởng: <strong class="text-danger">{{ Session::get('user')['data']['totalPoint'] ?? '' }}</strong>
                                 </div>
-                                <div class="history_company-point-time">Ngày tham gia: 10/10/2023</div>
+                                <div class="history_company-point-time">Ngày tham gia: {{ \Carbon\Carbon::parse(Session::get('user')['data']['created_at'])->format('d/m/Y') ?? '' }}</div>
                             </div>
+                            
                         </div>
                         <div class="history_user col-4 col-md-8 col-xl-4 mb-5">
                             <div class="history_user-title">Thông tin tài khoản</div>
                             <div class="history_user-detail">
                                 <div class="history_user-items row">
                                     <div class="history_user-name col-6">Họ và tên:</div>
-                                    <div class="history_user-text col-6">Ngọc bảo</div>
+                                    <div class="history_user-text col-6">{{ Session::get('user')['data']['name'] ?? '' }}</div>
                                 </div>
                                 <div class="history_user-items row">
                                     <div class="history_user-name col-6">Số điện thoại:</div>
-                                    <div class="history_user-text col-6">0327350489</div>
+                                    <div class="history_user-text col-6">{{ Session::get('user')['data']['phone'] ?? '' }}</div>
                                 </div>
                                 <div class="history_user-items row">
                                     <div class="history_user-name col-6">Email:</div>
-                                    <div class="history_user-text col-6">baonn@doppelherz.vn</div>
+                                    <div class="history_user-text col-6">{{ Session::get('user')['data']['email'] ?? '' }}</div>
                                 </div>
                                 <div class="history_user-items row">
                                     <div class="history_user-name col-6">Địa chỉ:</div>
-                                    <div class="history_user-text col-6">219 trung kính cầu giấy</div>
+                                    <div class="history_user-text col-6">{{ Session::get('user')['data']['address'] ?? '' }}</div>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +67,7 @@
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Họ và tên</div>
-                                        <div>Ngọc Bảo</div>
+                                        <div>{{ Session::get('user')['data']['name'] ?? '' }}</div>
                                     </div>
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
@@ -75,7 +76,7 @@
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Số điện thoại</div>
-                                        <div>0327350489</div>
+                                        <div>{{ Session::get('user')['data']['phone'] ?? '' }}</div>
                                     </div>
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
@@ -84,7 +85,7 @@
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Email</div>
-                                        <div>baonn@doppelherz.vn</div>
+                                        <div>{{ Session::get('user')['data']['email'] ?? '' }}</div>
                                     </div>
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
@@ -93,7 +94,7 @@
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Địa chỉ</div>
-                                        <div>219 trung kính cầu giấy</div>
+                                        <div>{{ Session::get('user')['data']['address'] ?? '' }}</div>
                                     </div>
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
@@ -102,7 +103,7 @@
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Ngày tham gia</div>
-                                        <div>10/10/2023</div>
+                                        <div>{{ \Carbon\Carbon::parse(Session::get('user')['data']['created_at'])->format('d/m/Y') ?? '' }}</div>
                                     </div>
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
@@ -111,7 +112,7 @@
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Tổng diểm tích lũy</div>
-                                        <div>99 điểm</div>
+                                        <div>{{ Session::get('user')['data']['totalPoint'] ?? '' }} điểm</div>
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +121,7 @@
                                     <strong>Điểm hiện tại:</strong>
                                 </div>
                                 <div class="history_user-mobile-total-point">
-                                    <strong class="text-danger">1862 điểm</strong>
+                                    <strong class="text-danger">{{ Session::get('user')['data']['totalPoint'] ?? '' }} điểm</strong>
                                 </div>
                             </div>
                             <div class="history_user-mobile-gift">
@@ -161,13 +162,14 @@
                                                 </div>
                                             </div>
                                             <div class="custom_table-middle">
+                                                {{-- @foreach($historyPoint as $his) --}}
                                                 <div class="custom_table-list">
                                                     <div class="custom_table-items">
                                                         <div class="custom_table-items-title">
                                                             Tên sản phẩm:
                                                         </div>
                                                         <div class="custom_table-items-value">
-                                                            A-Z Fizz
+                                                            {{-- {{ $his->product_name }} --}}
                                                         </div>
                                                     </div>
                                                     <div class="custom_table-items">
@@ -187,58 +189,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="custom_table-list">
-                                                    <div class="custom_table-items">
-                                                        <div class="custom_table-items-title">
-                                                            Tên sản phẩm:
-                                                        </div>
-                                                        <div class="custom_table-items-value">
-                                                            A-Z Fizz
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom_table-items">
-                                                        <div class="custom_table-items-title">
-                                                            Mã QR:
-                                                        </div>
-                                                        <div class="custom_table-items-value">
-                                                            NRLlfLeRXIKX
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom_table-items">
-                                                        <div class="custom_table-items-title">
-                                                            Ngày quét mã:
-                                                        </div>
-                                                        <div class="custom_table-items-value">
-                                                            16/12/2023
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="custom_table-list">
-                                                    <div class="custom_table-items">
-                                                        <div class="custom_table-items-title">
-                                                            Tên sản phẩm:
-                                                        </div>
-                                                        <div class="custom_table-items-value">
-                                                            A-Z Fizz
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom_table-items">
-                                                        <div class="custom_table-items-title">
-                                                            Mã QR:
-                                                        </div>
-                                                        <div class="custom_table-items-value">
-                                                            NRLlfLeRXIKX
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom_table-items">
-                                                        <div class="custom_table-items-title">
-                                                            Ngày quét mã:
-                                                        </div>
-                                                        <div class="custom_table-items-value">
-                                                            16/12/2023
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                {{-- @endforeach --}}
                                             </div>
                                         </div>
                                     </div>

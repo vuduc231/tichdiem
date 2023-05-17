@@ -4,16 +4,17 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Services\ApiServices;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 
 class HistoryController extends Controller
 {
-    //contructor
-    public function __construct()
+    protected $apiServices;
+
+    public function __construct(ApiServices $apiServices)
     {
-        // $this->middleware('auth');
-        // $this->dwtServices = new DwtServices();
+        $this->apiServices = $apiServices;
     }
     /**
      * Display a listing of the resource.
@@ -22,7 +23,9 @@ class HistoryController extends Controller
      */
     public function index()
     {
-        return view('page.history.history');
+        $historyPoint = $this->apiServices->historyPoint();
+        // dd($historyPoint);
+        return view('page.history.history')->with('historyPoint', $historyPoint);
     }
 
     /**

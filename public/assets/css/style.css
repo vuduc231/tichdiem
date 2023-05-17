@@ -670,8 +670,10 @@
 .gift_scroll-value {
     background-color: #be123c;
     display: inline-block;
-    padding: 10px;
+    padding: 12px;
     border-radius: 50%;
+    width: 48px;
+    height: 48px;
     color: var(--white-color);
     font-weight: 500;
     font-size: var(--fz-16);
@@ -686,8 +688,11 @@
 .gift_scroll-img {
     width: 86px;
 }
-.gift_scroll-img .gift_scroll-img--hasBox{
+
+.gift_scroll-img .gift_scroll-img--hasBox {
     cursor: pointer;
+    height: 86px;
+    object-fit: contain;
 }
 
 .gift_scroll-img:hover .gift_scroll-showDetail {
@@ -762,10 +767,24 @@
 }
 .exchange_gift-img {
     margin-bottom: 10px;
+    height: 190px;
+    display: flex;
 }
+
+.exchange_gift-img img{
+    object-fit: contain;
+}
+
 .exchange_gift-title {
     font-size: var(--fz-16);
     margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    height: 50px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
 }
 .exchange_gift-values {
     font-size: var(--fz-16);
@@ -861,3 +880,37 @@
     font-size: var(--fz-16);
 }
 /********* END CUSTOM TABLE *********/
+
+/********* MODAL LOGIN REGISTER *********/
+
+.modal_loginRegister .modal-header {
+    border-bottom: none;
+    display: block;
+    position: relative;
+}
+.modal_loginRegister .modal-content {
+    border: 2px solid #c42726;
+}
+
+.modal_loginRegister .modal_loginRegister-close  {
+    position: absolute;
+    right: -12px;
+    top: -12px;
+}
+
+.modal_loginRegister .modal-header .modal_loginRegister-close i {
+    padding: 6px 10px;
+    background-color: var(--white-color);
+    opacity: 1;
+    border-radius: 50%;
+    font-size: var(--fz-20);
+}
+
+.modal_loginRegister .modal-body .form-control {
+    font-size: var(--fz-14);
+}
+.modal_loginRegister .modal-body .btn {
+    font-size: var(--fz-14);
+}
+
+/********* END MODAL LOGIN REGISTER *********/
