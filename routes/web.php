@@ -40,7 +40,7 @@ Route::get('/dieu-khoan-su-dung', [TermsController::class, 'index'])->name('term
 Route::get('/the-le', [RuleController::class, 'index'])->name('rule');
 
 // Gift
-Route::get('/doi-qua', [GiftController::class, 'index'])->name('gift');
+Route::get('/doi-qua', [GiftController::class, 'index'])->name('gift')->middleware('auth.login');
 
 // History
-Route::get('/lich-su-doi-qua', [HistoryController::class, 'index'])->name('history');
+Route::get('/lich-su-doi-qua', [HistoryController::class, 'index'])->name('history')->middleware('auth.login');

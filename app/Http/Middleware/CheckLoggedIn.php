@@ -4,29 +4,18 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
 class CheckLoggedIn
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
-{
-    $response = $next($request);
+    public function handle(Request $request, Closure $next)
+    {
+        if (Auth::check() && !Auth::user()->hasRole()) {
+            // Người dùng đã đăng nhập nhưng không có vai trò
+            // Thực hiện các hành động xử lý hoặc chuyển hướng tại đây
+            return redirect('/login');
+        }
 
-    if (Auth::check()) {
-        // Người dùng đã đăng nhập thành công
-        // Thêm mã logic của bạn ở đây
-    } else {
-        return redirect()->route('login'); // Chuyển hướng đến trang đăng nhập
+        return $next($request);
     }
-
-    return $response;
-}
 }

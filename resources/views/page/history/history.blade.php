@@ -162,14 +162,14 @@
                                                 </div>
                                             </div>
                                             <div class="custom_table-middle">
-                                                {{-- @foreach($historyPoint as $his) --}}
+                                                @foreach($historyPoint['history'] as $his)
                                                 <div class="custom_table-list">
                                                     <div class="custom_table-items">
                                                         <div class="custom_table-items-title">
                                                             Tên sản phẩm:
                                                         </div>
                                                         <div class="custom_table-items-value">
-                                                            {{-- {{ $his->product_name }} --}}
+                                                            {{ $his['product_name'] ?? '' }}
                                                         </div>
                                                     </div>
                                                     <div class="custom_table-items">
@@ -177,7 +177,7 @@
                                                             Mã QR:
                                                         </div>
                                                         <div class="custom_table-items-value">
-                                                            NRLlfLeRXIKX
+                                                            {{ $his['qr_specialCode'] ?? '' }}
                                                         </div>
                                                     </div>
                                                     <div class="custom_table-items">
@@ -185,11 +185,11 @@
                                                             Ngày quét mã:
                                                         </div>
                                                         <div class="custom_table-items-value">
-                                                            16/12/2023
+                                                            {{ \Carbon\Carbon::parse($his['created_at'])->format('d/m/Y') ?? '' }}
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {{-- @endforeach --}}
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
