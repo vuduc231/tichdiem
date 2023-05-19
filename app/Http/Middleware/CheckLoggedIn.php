@@ -11,11 +11,6 @@ class CheckLoggedIn
 {
     public function handle(Request $request, Closure $next): Response
     {
-        // if (Auth::check() && !Auth::user()->hasRole()) {
-        //     // Người dùng đã đăng nhập nhưng không có vai trò
-        //     // Thực hiện các hành động xử lý hoặc chuyển hướng tại đây
-        //     return redirect('/login');
-        // }
         //get current user in session
         $user = session()->get('user');
         if (!$user) {

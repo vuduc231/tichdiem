@@ -52,6 +52,19 @@ class ApiServices
         // $result = json_decode((string)$response->getBody(), true);
         return json_decode((string)$response->getBody()->getContents(), true);
     }
+    public function register($name, $phone, $email, $password)
+    {
+        $url = $this->apiUrl . '/dangky';
+        $response = $this->client->post($url, [
+            'name' => $name,
+            'phone' => $phone,
+            'email' => $email,
+            'password' => $password
+        ]);
+
+        // $result = json_decode((string)$response->getBody(), true);
+        return json_decode((string)$response->getBody()->getContents(), true);
+    }
 
     public function getThongTinQuaTang()
     {

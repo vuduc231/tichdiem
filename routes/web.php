@@ -50,3 +50,8 @@ Route::get('/lich-su-doi-qua', [HistoryController::class, 'index'])->name('histo
 
 // Contact
 Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');
+
+// Route 404 - Xử lý URL không tồn tại
+// Route::fallback(function () {
+//     return response()->view('404', [], 404);
+// });

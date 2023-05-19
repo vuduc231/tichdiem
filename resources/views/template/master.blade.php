@@ -19,8 +19,7 @@
     <!-- Plugins -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
     <!-- Base CSS -->
     <link rel="stylesheet" href="{{ asset('/assets/css/normalize.css') }}" />
@@ -76,17 +75,22 @@
                                     </div>
                                 </div>
                                 <div class="col-6 d-flex flex-column justify-content-center">
+                                    @if (session('loginError'))
+                                        <div class="alert alert-danger text-center fs-5">
+                                            {{ session('loginError') }}
+                                        </div>
+                                    @endif
                                     <div class="loginRegister_tabs-withForm">
                                         <form action="{{ route('loginApi') }}" method="POST">
                                             @csrf
                                             <div class="position-relative mb-5">
-                                                <input type="text" name="phone" class="form-control" placeholder="Số điện thoại" />
+                                                <input type="text" name="phone" required class="form-control" placeholder="Số điện thoại" />
                                             </div>
                                             <div class="position-relative mb-5">
-                                                <input type="password" name="password" class="form-control" placeholder="Mật khẩu" />
+                                                <input type="password" name="password" required class="form-control" placeholder="Mật khẩu" />
                                             </div>
                                             <div class="d-flex justify-content-end align-items-center mb-4">
-                                                <a class="fs-4 text-danger" href="#">
+                                                <a class="fs-4 text-danger" href="{{ route('contact') }}">
                                                 Quên mật khẩu
                                                 </a>
                                             </div>
@@ -106,6 +110,11 @@
                                     </div>
                                 </div>
                                 <div class="col-6 d-flex flex-column justify-content-center">
+                                    @if (session('registerError'))
+                                        <div class="alert alert-danger text-center fs-5">
+                                            {{ session('registerError') }}
+                                        </div>
+                                    @endif
                                     <div class="loginRegister_tabs-withForm">
                                         <form action="{{ route('registerApi') }}" method="POST" autocomplete="off">
                                             @csrf
@@ -130,7 +139,7 @@
                                             </div>
                                             <div class="col-12 position-relative mb-4">
                                                 <div class="form-check fs-4">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    <input name="acceptTerms" class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked/>
                                                     <label for="flexCheckDefault" class="form-check-label">
                                                         Tôi đồng ý với 
                                                         <a class="text-danger fw-bold" href="{{ route('terms') }}">Điều khoản</a> &amp; <a class="text-danger fw-bold" href="{{ route('privacy') }}"> Chính sách bảo mật.</a>
@@ -139,7 +148,7 @@
                                             </div>
                                             
                                             <div class="position-relative mb-3">
-                                                <button type="button" class="btn btn-danger w-100">Đăng ký</button>
+                                                <button type="submit" class="btn btn-danger w-100">Đăng ký</button>
                                             </div>
                                         </form>
                                     </div>

@@ -18,6 +18,11 @@
                     <div class="text-center mb-5">
                         <h1 class="fw-bold">Đăng nhập</h1>
                     </div>
+                    @if (session('loginError'))
+                        <div class="alert alert-danger text-center fs-5 mb-3">
+                            {{ session('loginError') }}
+                        </div>
+                    @endif
                     <form action="{{ route('loginApi') }}" method="POST">
                         @csrf
                         <div class="position-relative mb-5">

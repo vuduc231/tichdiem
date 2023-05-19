@@ -197,7 +197,7 @@
 }
 
 .slider_wrapper .slick-dots {
-    bottom: 0;
+    bottom: 30px;
 }
 
 .slider_wrapper .slick-dots li {
@@ -902,8 +902,8 @@
 
 .modal_loginRegister .modal_loginRegister-close  {
     position: absolute;
-    right: -12px;
-    top: -12px;
+    right: -18px;
+    top: -18px;
 }
 
 .modal_loginRegister .modal-header .modal_loginRegister-close i {
