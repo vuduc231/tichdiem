@@ -2,7 +2,7 @@
 @section('title', 'Điều khoản sử dụng')
 @section('main_section')
 <!-- ======= Terms ======= -->
-<section class="terms pb-5">
+<section class="terms pb-5 pt-5">
     <div class="container">
         <div class="card">
             <div class="card-body card-body_home">

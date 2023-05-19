@@ -3,7 +3,7 @@
 @section('title', 'Khách hàng thân thiết')
 @section('main_section')
     <!-- ======= Slider ======= -->
-    <section class="slider_with-img pb-3">
+    <section class="slider_with-img pb-5 pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-12 col-xl-8">

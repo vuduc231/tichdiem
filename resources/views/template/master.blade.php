@@ -48,14 +48,14 @@
                 <div class="modal-header">
                     <ul class="nav nav-tabs mb-3 justify-content-between" id="myTab0" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="home-tab0" data-mdb-toggle="tab"
+                            <button class="fs-4 nav-link active" id="home-tab0" data-mdb-toggle="tab"
                                 data-mdb-target="#home0" type="button" role="tab" aria-controls="home"
                                 aria-selected="true">
                                 Đăng nhập
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="profile-tab0" data-mdb-toggle="tab" data-mdb-target="#profile0"
+                            <button class="fs-4 nav-link" id="profile-tab0" data-mdb-toggle="tab" data-mdb-target="#profile0"
                                 type="button" role="tab" aria-controls="profile" aria-selected="false">
                                 Đăng ký
                             </button>
@@ -79,18 +79,18 @@
                                     <div class="loginRegister_tabs-withForm">
                                         <form action="{{ route('loginApi') }}" method="POST">
                                             @csrf
-                                            <div class="position-relative mb-3">
+                                            <div class="position-relative mb-5">
                                                 <input type="text" name="phone" class="form-control" placeholder="Số điện thoại" />
                                             </div>
-                                            <div class="position-relative mb-3">
+                                            <div class="position-relative mb-5">
                                                 <input type="password" name="password" class="form-control" placeholder="Mật khẩu" />
                                             </div>
-                                            <div class="d-flex justify-content-end align-items-center mb-3">
-                                                <a class="text-red-600" href="#">
+                                            <div class="d-flex justify-content-end align-items-center mb-4">
+                                                <a class="fs-4 text-danger" href="#">
                                                 Quên mật khẩu
                                                 </a>
                                             </div>
-                                            <div class="position-relative mb-3">
+                                            <div class="position-relative mb-4">
                                                 <button type="submit" class="btn btn-danger w-100">Đăng nhập</button>
                                             </div>
                                         </form>
@@ -107,33 +107,33 @@
                                 </div>
                                 <div class="col-6 d-flex flex-column justify-content-center">
                                     <div class="loginRegister_tabs-withForm">
-                                        <form action="/register" method="POST" autocomplete="off">
+                                        <form action="{{ route('registerApi') }}" method="POST" autocomplete="off">
                                             @csrf
                                            <div class="row">
-                                                <div class="col-6 position-relative mb-3">
+                                                <div class="col-6 position-relative mb-5">
                                                     <input type="text" name="name" class="form-control" placeholder="Họ và tên">
                                                 </div>
-                                                <div class="col-6 position-relative mb-3">
+                                                <div class="col-6 position-relative mb-5">
                                                     <input type="phone" name="phone" class="form-control" placeholder="Số điện thoại">
                                                 </div>
                                            </div>
-                                            <div class="col-12 position-relative mb-3">
+                                            <div class="col-12 position-relative mb-5">
                                                 <input type="email" name="email" class="form-control" placeholder="Email">
                                             </div>
                                             <div class="row">
-                                                <div class="col-6 position-relative mb-3">
+                                                <div class="col-6 position-relative mb-5">
                                                     <input type="password" name="password" class="form-control" placeholder="Mật khẩu">
                                                 </div>
-                                                <div class="col-6 position-relative mb-3">
+                                                <div class="col-6 position-relative mb-5">
                                                     <input type="password" name="re-password" class="form-control" placeholder="Xác nhận mật khẩu">
                                                 </div>
                                             </div>
-                                            <div class="col-12 position-relative mb-3">
-                                                <div class="form-check">
+                                            <div class="col-12 position-relative mb-4">
+                                                <div class="form-check fs-4">
                                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                                     <label for="flexCheckDefault" class="form-check-label">
                                                         Tôi đồng ý với 
-                                                        <a class="" href="{{ route('terms') }}">Điều khoản</a> &amp; <a class="text-red-600 hover:underline" href="{{ route('privacy') }}"> Chính sách bảo mật.</a>
+                                                        <a class="text-danger fw-bold" href="{{ route('terms') }}">Điều khoản</a> &amp; <a class="text-danger fw-bold" href="{{ route('privacy') }}"> Chính sách bảo mật.</a>
                                                     </label>
                                                   </div>
                                             </div>

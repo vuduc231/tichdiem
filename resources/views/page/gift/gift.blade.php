@@ -9,7 +9,7 @@
 
 @section('main_section')
 <!-- ======= EXCHANGE GIFT ======= -->
-<section class="exchange_gift pb-3">
+<section class="exchange_gift pb-5 pt-5">
     <div class="container">
         <div class="breadcumb_wrapper mb-3 d-block text-center">
             <div class="breadcumb_title">Đổi quà</div>

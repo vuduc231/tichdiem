@@ -98,6 +98,12 @@
     .history_company-point-title {
         font-size: var(--fz-22);
     }
+    .section_with-img {
+        padding: 0 0 160px
+    }
+    .loginRegister_img {
+        width: 100%;
+    }
 }
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px) {

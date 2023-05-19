@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\PrivacyController;
 use App\Http\Controllers\Api\TermsController;
 use App\Http\Controllers\Api\GiftController;
 use App\Http\Controllers\Api\HistoryController;
+use App\Http\Controllers\Api\ContactController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,8 @@ use Illuminate\Support\Facades\Route;
 // Login & Register & Logout
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'loginApi'])->name('loginApi');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'registerApi'])->name('registerApi');
 Route::post('/logout', [AuthController::class, 'logout']);
 
 // Home
@@ -40,7 +43,10 @@ Route::get('/dieu-khoan-su-dung', [TermsController::class, 'index'])->name('term
 Route::get('/the-le', [RuleController::class, 'index'])->name('rule');
 
 // Gift
-Route::get('/doi-qua', [GiftController::class, 'index'])->name('gift')->middleware('auth.login');
+Route::get('/doi-qua', [GiftController::class, 'index'])->name('gift')->middleware('auth.login:user');
 
 // History
-Route::get('/lich-su-doi-qua', [HistoryController::class, 'index'])->name('history')->middleware('auth.login');
+Route::get('/lich-su-doi-qua', [HistoryController::class, 'index'])->name('history')->middleware('auth.login:user');
+
+// Contact
+Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');

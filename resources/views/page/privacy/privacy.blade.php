@@ -4,7 +4,7 @@
 
 @section('main_section')
 <!-- ======= Privacy ======= -->
-<section class="privacy pb-5">
+<section class="privacy pb-5 pt-5">
     <div class="container">
         <div class="card">
             <div class="card-body card-body_home">

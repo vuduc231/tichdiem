@@ -2,7 +2,7 @@
 @section('title', 'Lịch sử tích điểm')
 @section('main_section')
     <!-- ======= HISTORY ======= -->
-    <section class="history pb-3">
+    <section class="history pb-5 pt-5">
         <div class="container">
             <div class="breadcumb_wrapper mb-3">
                 <div class="breadcumb_title">Lịch sử tích điểm</div>

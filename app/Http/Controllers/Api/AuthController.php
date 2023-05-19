@@ -34,7 +34,16 @@ class AuthController extends Controller
             return redirect('/');
         }
 
-        return view('login');
+        return view('page.loginRegister.login');
+    }
+
+    public function register(Request $request)
+    {
+        if ($request->session()->has('token')) {
+            return redirect('/');
+        }
+
+        return view('page.loginRegister.register');
     }
 
     public function loginApi(Request $request)
@@ -48,6 +57,19 @@ class AuthController extends Controller
         $request->session()->put('user', $user);
 
         return redirect('/');
+    }
+
+    public function registerApi(Request $request)
+    {
+        // $user = $this->apiServices->login($request->phone, $request->password);
+        
+        // $access_token = $user['access_token'];
+        // // Lưu token vào session
+        // $request->session()->put('access_token', $access_token);
+        // // Lưu user vào session
+        // $request->session()->put('user', $user);
+
+        // return redirect('/');
     }
 
     public function logout(Request $request)
