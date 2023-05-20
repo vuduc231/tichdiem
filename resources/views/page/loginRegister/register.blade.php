@@ -6,16 +6,16 @@
 <!-- ======= REGISTER ======= -->
 <section class="register section_with-img">
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-12 col-xl-6">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-12 col-xl-5">
                 <div class="loginRegister_img m-auto">
                     <img class="d-none d-md-none d-xl-block" src="{{ asset('/assets/img/Banner-5.png') }}" alt="">
                     <img class="d-block d-md-block d-xl-none" src="{{ asset('/assets/img/Banner-6.png') }}" alt="">
                 </div>
             </div>
-            <div class="col-12 col-md-12 col-xl-6 d-flex flex-column justify-content-center">
+            <div class="col-12 col-md-12 col-xl-4 d-flex flex-column justify-content-center">
                 <div class="loginRegister_tabs-withForm">
-                    <div class="text-center mb-5">
+                    <div class="text-center mb-3">
                         <h1 class="fw-bold">Đăng ký tài khoản</h1>
                     </div>
                     @if (session('registerError'))
@@ -26,26 +26,26 @@
                     <form id="registerForm" action="{{ route('registerApi') }}" method="POST" autocomplete="off">
                         @csrf
                        <div class="row">
-                            <div class="col-12 col-md-12 col-xl-6 position-relative mb-5">
+                            <div class="col-12 col-md-12 col-xl-6 position-relative mb-4">
                                 <input type="text" name="name" id="name" class="form-control fs-4" placeholder="Họ và tên">
-                                <span id="name-error" class="text-danger d-none fs-5">Vui lòng nhập họ và tên</span>
+                                <span id="name-error" class="text-danger d-none fs-5"></span>
                             </div>
-                            <div class="col-12 col-md-12 col-xl-6 position-relative mb-5">
+                            <div class="col-12 col-md-12 col-xl-6 position-relative mb-4">
                                 <input type="phone" name="phone" id="phone" class="form-control fs-4" placeholder="Số điện thoại">
-                                <span id="phone-error" class="text-danger d-none fs-5">Vui lòng nhập số điện thoại</span>
+                                <span id="phone-error" class="text-danger d-none fs-5"></span>
                             </div>
                        </div>
-                        <div class="col-12 position-relative mb-5">
+                        <div class="col-12 position-relative mb-4">
                             <input type="email" name="email" class="form-control fs-4" placeholder="Email">
                         </div>
                         <div class="row">
-                            <div class="col-12 col-md-12 col-xl-6 position-relative mb-5">
+                            <div class="col-12 col-md-12 col-xl-6 position-relative mb-4">
                                 <input type="password" name="password" id="password" class="form-control fs-4" placeholder="Mật khẩu">
-                                <span id="password-error" class="text-danger d-none fs-5">Mật khẩu không đủ 6 kí tự</span>
+                                <span id="password-error" class="text-danger d-none fs-5"></span>
                             </div>
-                            <div class="col-12 col-md-12 col-xl-6 position-relative mb-5">
+                            <div class="col-12 col-md-12 col-xl-6 position-relative mb-4">
                                 <input type="password" name="re-password" id="re-password" class="form-control fs-4" placeholder="Xác nhận mật khẩu">
-                                <span id="rePassword-error" class="text-danger d-none fs-5">Mật khẩu và xác nhận mật khẩu không trùng khớp</span>
+                                <span id="rePassword-error" class="text-danger d-none fs-5"></span>
                             </div>
                         </div>
                         <div class="col-12 position-relative mb-4">
@@ -85,10 +85,12 @@
     const phoneInput = document.getElementById('phone');
     const passwordInput = document.getElementById('password');
     const rePasswordInput = document.getElementById('re-password');
+
     const nameError = document.getElementById('name-error');
     const phoneError = document.getElementById('phone-error');
     const passwordError = document.getElementById('password-error');
     const rePasswordError = document.getElementById('rePassword-error');
+    
     const registerForm = document.getElementById('registerForm');
 
     function validatePassword() {
@@ -100,13 +102,19 @@
         let hasError = false;
 
         if (!name) {
+            nameError.textContent = "Vui lòng nhập họ và tên";
             nameError.classList.remove('d-none');
             hasError = true;
         } else {
             nameError.classList.add('d-none');
         }
 
-        if (!phone || isNaN(phone)) {
+        if (!phone) {
+            phoneError.textContent = "Vui lòng nhập số điện thoại.";
+            phoneError.classList.remove('d-none');
+            hasError = true;
+        } else if (isNaN(phone)) {
+            phoneError.textContent = "Số điện thoại không đúng định dạng.";
             phoneError.classList.remove('d-none');
             hasError = true;
         } else {
@@ -114,6 +122,7 @@
         }
 
         if (password !== rePassword) {
+            rePasswordError.textContent = "Mật khẩu xác nhận không khớp.";
             rePasswordError.classList.remove('d-none');
             hasError = true;
         } else {
@@ -121,6 +130,7 @@
         }
 
         if (password.length < 6) {
+            passwordError.textContent = "Mật khẩu không đủ 6 kí tự";
             passwordError.classList.remove('d-none');
             hasError = true;
         } else {
@@ -134,6 +144,7 @@
 
     nameInput.addEventListener('keyup', validatePassword);
     phoneInput.addEventListener('keyup', validatePassword);
+    passwordInput.addEventListener('keyup', validatePassword);
     rePasswordInput.addEventListener('keyup', validatePassword);
     registerForm.addEventListener('submit', validatePassword);
 </script>

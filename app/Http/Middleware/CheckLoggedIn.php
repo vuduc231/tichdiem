@@ -14,13 +14,13 @@ class CheckLoggedIn
         //get current user in session
         $user = session()->get('user');
         if (!$user) {
-            return redirect('/login');
+            return redirect()->route('login');
         }
 
         //get current token in session
         $token = session()->get('access_token');
         if (!$token) {
-            return redirect('/login');
+            return redirect()->route('login');
         }
 
         //if not, redirect to login page

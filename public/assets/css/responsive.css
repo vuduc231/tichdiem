@@ -219,12 +219,13 @@
     }
     .custom_table-items-value {
         font-size: var(--fz-14);
-        font-weight: 400;
+        font-weight: 700;
     }
     .custom_table-list {
         display: grid;
         grid-template-columns: 100%;
     }
+    
     .custom_table-top {
         display: none;
     }
@@ -260,5 +261,26 @@
     }
     .gift_scroll-notice--withMobile {
         display: block;
+    }
+    .empty_table-top {
+        display: none;
+    }
+    .empty_table-list {
+        display: flex;
+    }
+    .empty_table-items-value-title {
+        display: none;
+    }
+    .empty_table-items + .empty_table-items {
+        display: none;
+    }
+    .empty_table-items-value-right .empty_table-value{
+        display: block;
+    }
+    .empty_table-items-value-left {
+        margin-right: 10px;
+        border: 1px solid #e0e0e0;
+        border-radius: var(--border-radius-main);
+        overflow: hidden;
     }
 }

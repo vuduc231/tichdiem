@@ -103,7 +103,7 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 0 2rem;
     font-weight: normal;
     text-transform: uppercase;
-    margin: 0;  
+    margin: 0;
 }
 
 .section_with-img {
@@ -129,8 +129,10 @@ body::-webkit-scrollbar-thumb:hover {
 .text-justify {
     text-align: justify;
 }
-.form-control {
+.form-control,
+.form-outline .form-control {
     padding: 8px;
+    border-radius: var(--border-radius-main);
 }
 .form-check-input {
     width: 1.6rem;
@@ -154,6 +156,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .btn {
     padding: 8px;
+    border-radius: var(--border-radius-main);
 }
 
 .nav-tabs .nav-item.show .nav-link,
@@ -164,9 +167,33 @@ body::-webkit-scrollbar-thumb:hover {
 
 .accordion-button:focus {
     border-color: var(--primary-color);
-    box-shadow: none!important;
+    box-shadow: none !important;
 }
 
+.form-outline .form-control ~ .form-label {
+    left: 1.2rem;
+}
+
+.form-outline .form-control:focus~.form-label {
+    color: var(--primary-color);
+}
+.form-outline .form-control:focus~.form-notch .form-notch-leading {
+    border-color: var(--primary-color);
+    box-shadow: -1px 0 0 0 var(--primary-color), 0 1px 0 0 var(--primary-color), 0 -1px 0 0 var(--primary-color);
+}
+.form-outline .form-control:focus~.form-notch .form-notch-middle {
+    border-color: var(--primary-color);
+    box-shadow: 0 1px 0 0 var(--primary-color);
+    border-top: 1px solid transparent;
+}
+.form-outline .form-control:focus~.form-notch .form-notch-trailing {
+    border-color: var(--primary-color);
+    box-shadow: 1px 0 0 0 var(--primary-color), 0 -1px 0 0 var(--primary-color), 0 1px 0 0 var(--primary-color);
+}
+.form-outline .form-control.disabled, .form-outline .form-control:disabled, .form-outline .form-control[readonly] {
+    background-color: #f2f2f2;
+    cursor: not-allowed;
+}
 /********* Animation  *********/
 @keyframes fadeIn {
     from {

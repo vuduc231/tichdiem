@@ -4,91 +4,61 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Services\ApiServices;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    //contructor
-    public function __construct()
+    protected $apiServices;
+
+    public function __construct(ApiServices $apiServices)
     {
-        // $this->middleware('auth');
-        // $this->dwtServices = new DwtServices();
+        $this->apiServices = $apiServices;
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         return view('page.contact.contact');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function contactApi(Request $request)
     {
-        //
-    }
+        try {
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+            $data = $request->validate([
+                'name' => 'nullable',
+                'phone' => 'nullable',
+                'email' => 'nullable',
+                'messenger' => 'nullable',
+            ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Item $item)
-    {
-        //
-    }
+            $contact = $this->apiServices->contact($data);
+            if ($contact) {
+                $successMsg = "Data has been successfully submitted.";
+                return redirect()->route('contact')->with('success', $successMsg);
+            } else {
+                $errorMsg = "Failed to submit the data.";
+                return back()->with('contactError', $errorMsg);
+            }
+            
+        } catch (Exception $e) {
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Item $item)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Item $item)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Item $item)
-    {
-        //
+            $errorMsg = "Có lỗi xảy ra!";
+            error_log($e->getMessage());
+            //if 401 or 404 is in error message
+            if (strpos($e->getMessage(), '401') !== false || strpos($e->getMessage(), '404') !== false) {
+                $errorMsg = "Không thành công!";
+            } else {
+                $errorMsg = $e->getMessage();
+            }
+            //return back with login error
+            return back()->with('contactError', $errorMsg);
+        }
     }
 }
 

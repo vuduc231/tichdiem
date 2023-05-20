@@ -66,6 +66,25 @@ class ApiServices
         return json_decode((string)$response->getBody()->getContents(), true);
     }
 
+    public function contact($data)
+    {
+        $response = $this->client->post($this->apiUrl . '/help/send');
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    public function changeGift($data)
+    {
+        $response = $this->client->post($this->apiUrl . '/doiqua', ['json' => $data]);
+
+        return json_decode((string)$response->getBody()->getContents(), true);
+    }
+
+    public function getUser($userId)
+    {
+        $response = $this->client->get($this->apiUrl . '/nguoidung/' . $userId);
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
     public function getThongTinQuaTang()
     {
         $response = $this->client->get($this->apiUrl . '/thongtinquatang');
@@ -77,19 +96,29 @@ class ApiServices
         $response = $this->client->get($this->apiUrl . '/get-category/2');
         return json_decode($response->getBody()->getContents(), true);
     }
+
     public function getMen()
     {
         $response = $this->client->get($this->apiUrl . '/get-category/3');
         return json_decode($response->getBody()->getContents(), true);
     }
+
     public function getChild()
     {
         $response = $this->client->get($this->apiUrl . '/get-category/4');
         return json_decode($response->getBody()->getContents(), true);
     }
+
     public function historyPoint()
     {
         $response = $this->client->get($this->apiUrl . '/history');
         return json_decode($response->getBody()->getContents(), true);
     }
+
+    public function historyExchange()
+    {
+        $response = $this->client->get($this->apiUrl . '/history-gift-exchange');
+        return json_decode($response->getBody()->getContents(), true);
+    }
+    
 }

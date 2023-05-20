@@ -8,7 +8,7 @@
     <title>@yield('title') - Doppelherz</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link rel="shortcut icon" href="{{ asset('/assets/img/favicon.ico') }}" />
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -48,13 +48,13 @@
                     <ul class="nav nav-tabs mb-3 justify-content-between" id="myTab0" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="fs-4 nav-link active" id="home-tab0" data-mdb-toggle="tab"
-                                data-mdb-target="#home0" type="button" role="tab" aria-controls="home"
+                                data-mdb-target="#loginTab" type="button" role="tab" aria-controls="home"
                                 aria-selected="true">
                                 Đăng nhập
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="fs-4 nav-link" id="profile-tab0" data-mdb-toggle="tab" data-mdb-target="#profile0"
+                            <button class="fs-4 nav-link" id="profile-tab0" data-mdb-toggle="tab" data-mdb-target="#registerTab"
                                 type="button" role="tab" aria-controls="profile" aria-selected="false">
                                 Đăng ký
                             </button>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="tab-content loginRegister_tabs-wrapper" id="myTabContent0">
-                        <div class="tab-pane fade show active" id="home0" role="tabpanel"
+                        <div class="tab-pane fade show active" id="loginTab" role="tabpanel"
                             aria-labelledby="home-tab0">
                             <div class="row">
                                 <div class="col-6">
@@ -102,7 +102,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="profile0" role="tabpanel" aria-labelledby="profile-tab0">
+                        <div class="tab-pane fade" id="registerTab" role="tabpanel" aria-labelledby="profile-tab0">
                             <div class="row">
                                 <div class="col-6">
                                     <div class="loginRegister_tabs-img">

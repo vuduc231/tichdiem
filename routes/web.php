@@ -24,11 +24,11 @@ use Illuminate\Support\Facades\Route;
 
 
 // Login & Register & Logout
-Route::get('/login', [AuthController::class, 'index'])->name('login');
-Route::post('/login', [AuthController::class, 'loginApi'])->name('loginApi');
-Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/register', [AuthController::class, 'registerApi'])->name('registerApi');
-Route::post('/logout', [AuthController::class, 'logout']);
+Route::get('/dang-nhap', [AuthController::class, 'index'])->name('login');
+Route::post('/dang-nhap', [AuthController::class, 'loginApi'])->name('loginApi');
+Route::get('/dang-ky', [AuthController::class, 'register'])->name('register');
+Route::post('/dang-ky', [AuthController::class, 'registerApi'])->name('registerApi');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -43,13 +43,18 @@ Route::get('/dieu-khoan-su-dung', [TermsController::class, 'index'])->name('term
 Route::get('/the-le', [RuleController::class, 'index'])->name('rule');
 
 // Gift
-Route::get('/doi-qua', [GiftController::class, 'index'])->name('gift')->middleware('auth.login:user');
+Route::group(['middleware' => 'auth.login:user'], function () {
+    Route::get('/doi-qua', [GiftController::class, 'index'])->name('gift.list');
+    Route::post('/doi-qua', [GiftController::class, 'changeGift'])->name('gift.change');
+});
+
 
 // History
 Route::get('/lich-su-doi-qua', [HistoryController::class, 'index'])->name('history')->middleware('auth.login:user');
 
 // Contact
 Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');
+Route::post('/lien-he', [ContactController::class, 'contactApi'])->name('contactApi');
 
 // Route 404 - Xử lý URL không tồn tại
 // Route::fallback(function () {

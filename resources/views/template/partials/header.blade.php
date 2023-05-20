@@ -52,12 +52,12 @@
                                 </a>
                             </li>
                             <li class="header_submenu-items">
-                                <a href="{{ route('gift') }}" class="header_submenu-link">
+                                <a href="{{ route('gift.list') }}" class="header_submenu-link">
                                     <span>Đổi quà</span>
                                 </a>
                             </li>
                             <li class="header_submenu-items">
-                                <form action="/logout" method="POST" class="m-0">
+                                <form action="{{ route('logout') }}" method="POST" class="m-0">
                                     @csrf
                                 {{-- <a href="#" class="header_submenu-link"> --}}
                                     <button class="header_submenu-link bg-transparent border-0" style="padding: 25px 28px;" type="submit">

@@ -24,8 +24,11 @@ class HistoryController extends Controller
     public function index()
     {
         $historyPoint = $this->apiServices->historyPoint();
-        // dd($historyPoint);
-        return view('page.history.history')->with('historyPoint', $historyPoint);
+        $historyExchange = $this->apiServices->historyExchange();
+        // dd($historyExchange);
+        return view('page.history.history')
+        ->with('historyExchange', $historyExchange)
+        ->with('historyPoint', $historyPoint);
     }
 
     /**
