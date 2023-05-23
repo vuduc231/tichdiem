@@ -1,5 +1,15 @@
 @extends('template.master')
+
 @section('title', 'Lịch sử tích điểm')
+
+@php
+    $historyCollection = collect($historyPoint['history']);
+    $sortedHistory = $historyCollection->sortByDesc('created_at');
+
+    $historyChangeGift = collect($historyExchange['order']);
+    $sortedHistoryChangeGift = $historyChangeGift->sortByDesc('created_at');
+@endphp
+
 @section('main_section')
     <!-- ======= HISTORY ======= -->
     <section class="history pb-5 pt-5">
@@ -178,7 +188,7 @@
                                                 </div>
                                             </div>
                                             <div class="custom_table-middle">
-                                                @foreach ($historyPoint['history'] as $his)
+                                                @foreach ($sortedHistory  as $his)
                                                     <div class="custom_table-list">
                                                         <div class="custom_table-items">
                                                             <div class="custom_table-items-title">
@@ -234,7 +244,7 @@
                                         </div>
                                         <div class="empty_table-middle">
 
-                                            @foreach ($historyExchange['order'] as $hisExchange)
+                                            @foreach ($sortedHistoryChangeGift as $hisExchange)
                                                 <div class="empty_table-list">
                                                     <div class="empty_table-items">
                                                         <div class="empty_table-items-value-left">

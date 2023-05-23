@@ -125,9 +125,9 @@
                             <div class="mb-3 exchangeGift-warning fs-4 text-danger">
                                 Vui lòng kiểm tra lại thông tin trước khi đổi quà.
                             </div>
-                            @if (session('error'))
+                            @if (session('giftError'))
                                 <div class="alert alert-danger text-center fs-5 mb-3">
-                                    {{ session('error') }}
+                                    {{ session('giftError') }}
                                 </div>
                             @endif
                             <div class="mb-3 exchangeGift-action d-flex align-items-center justify-content-end">
@@ -169,6 +169,7 @@
                             </div>
                             <form action="{{ route('gift.info') }}" method="POST">
                                 @csrf
+                                <input type="hidden" name="type" value="confirmed">
                                 <div class="form-outline mb-4">
                                     <input type="text" id="nameInput" name="name" value="{{ Session::get('user')['data']['name'] ?? '' }}" placeholder="Họ và tên" class="form-control p-3 fs-4" />
                                     <label class="form-label pt-0 fs-4" for="nameInput">Họ và tên</label>
