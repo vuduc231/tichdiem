@@ -51,9 +51,7 @@ class AuthController extends Controller
         
             if (isset($user['access_token'])) {
                 $access_token = $user['access_token'];
-                // Lưu token vào session
                 $request->session()->put('access_token', $access_token);
-                // Lưu user vào session
                 $request->session()->put('user', $user);
         
                 return redirect()->route('home');
@@ -61,6 +59,7 @@ class AuthController extends Controller
                 $errorMsg = "Tên đăng nhập hoặc mật khẩu không đúng!";
                 return back()->with('loginError', $errorMsg);
             }
+            $request->session()->regenerate();
         } catch (Exception $e) {
 
             $errorMsg = "Có lỗi xảy ra!";

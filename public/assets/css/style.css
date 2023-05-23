@@ -933,6 +933,9 @@
 }
 .empty_table-items-value-img {
     height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
 }
 .empty_table-items-value-img img {
     object-fit: contain;

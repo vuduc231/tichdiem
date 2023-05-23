@@ -125,6 +125,11 @@
                             <div class="mb-3 exchangeGift-warning fs-4 text-danger">
                                 Vui lòng kiểm tra lại thông tin trước khi đổi quà.
                             </div>
+                            @if (session('error'))
+                                <div class="alert alert-danger text-center fs-5 mb-3">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                             <div class="mb-3 exchangeGift-action d-flex align-items-center justify-content-end">
                                 <button class="btn btn-warning p-3 me-3 shadow-1" style="--mdb-btn-bg: #f97316; --mdb-btn-box-shadow: 0 4px 9px -4px #f97316; --mdb-btn-hover-bg: #f97316;--mdb-btn-focus-bg: #f97316;text-transform: none;" data-mdb-toggle="modal" data-mdb-target="#checkInfor-{{ $value['id'] }}">Kiểm tra thông tin</button>
                                 <form action="{{ route('gift.change') }}" method="POST">   
@@ -162,13 +167,14 @@
                             <div class="mb-3 exchangeGift-heading fs-2 fw-bold">
                                 Kiểm tra thông tin
                             </div>
-                            <form>
+                            <form action="{{ route('gift.info') }}" method="POST">
+                                @csrf
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="nameInput" value="{{ Session::get('user')['data']['name'] ?? '' }}" placeholder="Họ và tên" class="form-control p-3 fs-4" />
+                                    <input type="text" id="nameInput" name="name" value="{{ Session::get('user')['data']['name'] ?? '' }}" placeholder="Họ và tên" class="form-control p-3 fs-4" />
                                     <label class="form-label pt-0 fs-4" for="nameInput">Họ và tên</label>
                                 </div>
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="emailInput" value="{{ Session::get('user')['data']['email'] ?? '' }}" placeholder="Email" class="form-control p-3 fs-4" />
+                                    <input type="text" id="emailInput" name="email" value="{{ Session::get('user')['data']['email'] ?? '' }}" placeholder="Email" class="form-control p-3 fs-4" />
                                     <label class="form-label pt-0 fs-4" for="emailInput">Email</label>
                                 </div>
                                 <div class="form-outline mb-4">
@@ -176,7 +182,7 @@
                                     <label class="form-label pt-0 fs-4" for="phoneInput">Số điện thoại</label>
                                 </div>
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="addressInput" value="{{ Session::get('user')['data']['address'] ?? '' }}" placeholder="Địa chỉ" class="form-control p-3 fs-4" />
+                                    <input type="text" id="addressInput" name="address" value="{{ Session::get('user')['data']['address'] ?? '' }}" placeholder="Địa chỉ" class="form-control p-3 fs-4" />
                                     <label class="form-label pt-0 fs-4" for="addressInput">Địa chỉ</label>
                                 </div>
 
@@ -186,7 +192,7 @@
                                 </div>
                                 
                                 <div class="mb-3 exchangeGift-action d-flex align-items-center justify-content-center">
-                                    <button type="button" class="btn btn-danger p-3" style="text-transform: none;">Xác nhận đổi thông tin</button>
+                                    <button type="submit" class="btn btn-danger p-3" style="text-transform: none;">Xác nhận đổi thông tin</button>
                                 </div>
                             </form>
                         </div>

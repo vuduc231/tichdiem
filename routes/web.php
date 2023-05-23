@@ -45,7 +45,8 @@ Route::get('/the-le', [RuleController::class, 'index'])->name('rule');
 // Gift
 Route::group(['middleware' => 'auth.login:user'], function () {
     Route::get('/doi-qua', [GiftController::class, 'index'])->name('gift.list');
-    Route::post('/doi-qua', [GiftController::class, 'changeGift'])->name('gift.change');
+    Route::post('/doi-qua/changeGift', [GiftController::class, 'changeGift'])->name('gift.change');
+    Route::post('/doi-qua/update', [GiftController::class, 'changeInfo'])->name('gift.info');
 });
 
 

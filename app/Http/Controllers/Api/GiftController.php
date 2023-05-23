@@ -32,25 +32,30 @@ class GiftController extends Controller
     public function changeGift(Request $request)
     {
         try {
-            $data = $request->validate([
-                'customer_id' => 'nullable',
-                'gift_id' => 'nullable',
-                'type' => 'nullable'
-            ]);
+            if (!$request->filled('type')) {
+                $request->merge(['type' => 'confirmed']);
+            }
+            $changeGift = $this->apiServices->changeGift($request->customer_id, $request->gift_id, $request->type);
         
-            $userId = Session::get('user')['data']['id'];
-            $getUser = $this->apiServices->getUser($userId);
-        
-            // $data['customer_id'] = intval($userId); // Gán giá trị cho customer_id
-            $data['customer_id'] = intval($request->input('customer_id'));
-            $data['gift_id'] = intval($request->input('gift_id'));
-        
-            $changeGift = $this->apiServices->changeGift($data);
-        
-            dd($changeGift);
+            return redirect()->route('gift.list');
+            // dd($changeGift);
         } catch (\Exception $e) {
             // Xử lý ngoại lệ
             $errorMsg = $e->getMessage();
+            // dd($errorMsg);
+        }
+    }
+
+    public function changeInfo(Request $request)
+    {
+        try {
+            $changeInfo = $this->apiServices->changeInfo($request->name, $request->email, $request->address);
+        
+            dd($changeInfo);
+        } catch (\Exception $e) {
+            // Xử lý ngoại lệ
+            $errorMsg = $e->getMessage();
+            // dd($errorMsg);
         }
     }
 

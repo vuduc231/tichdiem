@@ -65,6 +65,18 @@ class ApiServices
         // $result = json_decode((string)$response->getBody(), true);
         return json_decode((string)$response->getBody()->getContents(), true);
     }
+    public function changeInfo($name, $email, $address)
+    {
+        $url = $this->apiUrl . '/change-info';
+        $response = $this->client->post($url, [
+            'name' => $name,
+            'email' => $email,
+            'address' => $address
+        ]);
+
+        // $result = json_decode((string)$response->getBody(), true);
+        return json_decode((string)$response->getBody()->getContents(), true);
+    }
 
     public function contact($data)
     {
@@ -72,10 +84,19 @@ class ApiServices
         return json_decode($response->getBody()->getContents(), true);
     }
 
-    public function changeGift($data)
+    public function changeGift($customer_id, $gift_id, $type)
     {
-        $response = $this->client->post($this->apiUrl . '/doiqua', ['json' => $data]);
+        // $response = $this->client->post($this->apiUrl . '/doiqua', ['json' => $data]);
 
+        // return json_decode((string)$response->getBody()->getContents(), true);
+        $url = $this->apiUrl . '/doiqua';
+        $response = $this->client->post($url, [
+            'customer_id' => $customer_id,
+            'gift_id' => $gift_id,
+            'type' => $type
+        ]);
+
+        // $result = json_decode((string)$response->getBody(), true);
         return json_decode((string)$response->getBody()->getContents(), true);
     }
 
