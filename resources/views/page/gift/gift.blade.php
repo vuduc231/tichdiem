@@ -18,7 +18,7 @@
         <div class="card overflow-hidden mb-3">
             <div class="card-body">
                 <div class="gift_scroll-heading">
-                    Điểm của bạn: <strong class="text-danger">{{ Session::get('user')['data']['totalPoint'] ?? '' }}</strong>
+                    Điểm của bạn: <strong class="text-danger">{{ Session::get('getUser')['totalPoint'] ?? '' }}</strong>
                 </div>
                 <div class="gift_scroll-wrapper">
                     <div class="gift_scroll-list">
@@ -69,7 +69,7 @@
                         </div>
                         <div class="exchange_gift-right">
                             <div class="exchange_gift-title">{{ $value['name'] }}</div>
-                            <div class="exchange_gift-values">{{ Session::get('user')['data']['totalPoint'] ?? '' }}/<strong>{{ $value['valuePromotion'] }}</strong></div>
+                            <div class="exchange_gift-values">{{ Session::get('getUser')['totalPoint'] ?? '' }}/<strong>{{ $value['valuePromotion'] }}</strong></div>
                             <div class="exchange_gift-progress">
                                 <div class="progress">
                                     <div
@@ -125,17 +125,13 @@
                             <div class="mb-3 exchangeGift-warning fs-4 text-danger">
                                 Vui lòng kiểm tra lại thông tin trước khi đổi quà.
                             </div>
-                            @if (session('giftError'))
-                                <div class="alert alert-danger text-center fs-5 mb-3">
-                                    {{ session('giftError') }}
-                                </div>
-                            @endif
+                            
                             <div class="mb-3 exchangeGift-action d-flex align-items-center justify-content-end">
                                 <button class="btn btn-warning p-3 me-3 shadow-1" style="--mdb-btn-bg: #f97316; --mdb-btn-box-shadow: 0 4px 9px -4px #f97316; --mdb-btn-hover-bg: #f97316;--mdb-btn-focus-bg: #f97316;text-transform: none;" data-mdb-toggle="modal" data-mdb-target="#checkInfor-{{ $value['id'] }}">Kiểm tra thông tin</button>
                                 <form action="{{ route('gift.change') }}" method="POST">   
                                     @csrf
                                     <input type="hidden" name="gift_id" value="{{ $value['id'] }}">
-                                    <input type="hidden" name="customer_id" value="{{ Session::get('user')['data']['id'] }}">
+                                    <input type="hidden" name="customer_id" value="{{ Session::get('getUser')['id'] }}">
                                     <button type="submit" class="btn btn-danger p-3" style="text-transform: none;">Đổi quà</button>
                                 </form>
                             </div>
@@ -171,19 +167,19 @@
                                 @csrf
                                 <input type="hidden" name="type" value="confirmed">
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="nameInput" name="name" value="{{ Session::get('user')['data']['name'] ?? '' }}" placeholder="Họ và tên" class="form-control p-3 fs-4" />
+                                    <input type="text" id="nameInput" name="name" value="{{ Session::get('getUser')['name'] ?? '' }}" placeholder="Họ và tên" class="form-control p-3 fs-4" />
                                     <label class="form-label pt-0 fs-4" for="nameInput">Họ và tên</label>
                                 </div>
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="emailInput" name="email" value="{{ Session::get('user')['data']['email'] ?? '' }}" placeholder="Email" class="form-control p-3 fs-4" />
+                                    <input type="text" id="emailInput" name="email" value="{{ Session::get('getUser')['email'] ?? '' }}" placeholder="Email" class="form-control p-3 fs-4" />
                                     <label class="form-label pt-0 fs-4" for="emailInput">Email</label>
                                 </div>
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="phoneInput" readonly value="{{ Session::get('user')['data']['phone'] ?? '' }}" placeholder="Số điện thoại" class="form-control p-3 fs-4" />
+                                    <input type="text" id="phoneInput" readonly value="{{ Session::get('getUser')['phone'] ?? '' }}" placeholder="Số điện thoại" class="form-control p-3 fs-4" />
                                     <label class="form-label pt-0 fs-4" for="phoneInput">Số điện thoại</label>
                                 </div>
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="addressInput" name="address" value="{{ Session::get('user')['data']['address'] ?? '' }}" placeholder="Địa chỉ" class="form-control p-3 fs-4" />
+                                    <input type="text" id="addressInput" name="address" value="{{ Session::get('getUser')['address'] ?? '' }}" placeholder="Địa chỉ" class="form-control p-3 fs-4" />
                                     <label class="form-label pt-0 fs-4" for="addressInput">Địa chỉ</label>
                                 </div>
 
@@ -203,4 +199,11 @@
         </div>
     </div>
 </div>
+{{-- @if (Session::has('giftError')) --}}
+<script>
+    
+
+
+</script>
+{{-- @endif --}}
 @endforeach

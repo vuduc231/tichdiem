@@ -33,13 +33,22 @@ class GiftController extends Controller
     {
         try {
             if (!Session::get('type')) {
-                $errorMsg = "Vui lòng xác nhận thông tin";
+                $errorMsg = "Vui lòng kiểm tra lại thông tin trước khi đổi quà.";
+                alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Thử lại');
                 return back()->with('giftError', $errorMsg);
             }
             $type = Session::get('type');
             $request->merge(['type' => $type]);
             $changeGift = $this->apiServices->changeGift($request->customer_id, $request->gift_id, $request->type);
             // dd($changeGift); 
+
+            Session::forget('getUser');
+            $userId = $request->customer_id;
+            $getUserApi = $this->apiServices->getUser($userId);
+            $request->session()->put('getUser', $getUserApi);
+
+            // Session::put('user_name', $request->name);
+            alert()->success("Đổi quà thành công, chúng tôi sẽ liên hệ khi hàng được chuyển tới bạn. Xin cảm ơn!")->timerProgressBar()->autoClose(5000)->showConfirmButton('Xác nhận');
             
             Session::forget('type');
             return redirect()->route('gift.list');
@@ -53,9 +62,18 @@ class GiftController extends Controller
     {
         try {
             $type = $request->input('type');
-            $changeInfo = $this->apiServices->changeInfo($request->name, $request->email, $request->address);
             Session::put('type', $type);
+            $changeInfo = $this->apiServices->changeInfo($request->name, $request->email, $request->address);
+            
+            $data = Session::get('getUser');
+            $data['name'] = $request->input('name');
+            $data['email'] = $request->input('email');
+            $data['address'] = $request->input('address');
+            Session::put('getUser', $data);
+
+            Session::save();
             // dd($changeInfo);
+            alert()->success('Xác nhận thông tin thành công')->timerProgressBar()->autoClose(5000)->showConfirmButton('Tiếp tục');
             return redirect()->route('gift.list');
         } catch (\Exception $e) {
             // Xử lý ngoại lệ
@@ -64,71 +82,5 @@ class GiftController extends Controller
         }
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Item $item)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Item $item)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Item $item)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Item $item)
-    {
-        //
-    }
 }
 

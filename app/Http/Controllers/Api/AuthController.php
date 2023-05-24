@@ -48,15 +48,19 @@ class AuthController extends Controller
     {
         try {
             $user = $this->apiServices->login($request->phone, $request->password);
-        
+            
             if (isset($user['access_token'])) {
                 $access_token = $user['access_token'];
+                $userId = $user['data']['id'];
+                $getUserApi = $this->apiServices->getUser($userId);
+                $request->session()->put('getUser', $getUserApi);
                 $request->session()->put('access_token', $access_token);
                 $request->session()->put('user', $user);
-        
+                alert()->success("Đăng nhập thành công",)->timerProgressBar()->autoClose(5000)->showConfirmButton('Tiếp tục');
                 return redirect()->route('home');
             } else {
                 $errorMsg = "Tên đăng nhập hoặc mật khẩu không đúng!";
+                alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Thử lại');
                 return back()->with('loginError', $errorMsg);
             }
             $request->session()->regenerate();

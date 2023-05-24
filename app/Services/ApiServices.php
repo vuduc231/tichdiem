@@ -40,7 +40,7 @@ class ApiServices
             )
         );
     }
-
+    // ####### POST METHOD #######
     public function login($phone, $password)
     {
         $url = $this->apiUrl . '/login';
@@ -48,8 +48,6 @@ class ApiServices
             'phone' => $phone,
             'password' => $password
         ]);
-
-        // $result = json_decode((string)$response->getBody(), true);
         return json_decode((string)$response->getBody()->getContents(), true);
     }
     public function register($name, $phone, $email, $password)
@@ -61,8 +59,6 @@ class ApiServices
             'email' => $email,
             'password' => $password
         ]);
-
-        // $result = json_decode((string)$response->getBody(), true);
         return json_decode((string)$response->getBody()->getContents(), true);
     }
     public function changeInfo($name, $email, $address)
@@ -73,8 +69,6 @@ class ApiServices
             'email' => $email,
             'address' => $address
         ]);
-
-        // $result = json_decode((string)$response->getBody(), true);
         return json_decode((string)$response->getBody()->getContents(), true);
     }
 
@@ -86,20 +80,16 @@ class ApiServices
 
     public function changeGift($customer_id, $gift_id, $type)
     {
-        // $response = $this->client->post($this->apiUrl . '/doiqua', ['json' => $data]);
-
-        // return json_decode((string)$response->getBody()->getContents(), true);
         $url = $this->apiUrl . '/doiqua';
         $response = $this->client->post($url, [
             'customer_id' => $customer_id,
             'gift_id' => $gift_id,
             'type' => $type
         ]);
-
-        // $result = json_decode((string)$response->getBody(), true);
         return json_decode((string)$response->getBody()->getContents(), true);
     }
 
+    // ####### GET METHOD #######
     public function getUser($userId)
     {
         $response = $this->client->get($this->apiUrl . '/nguoidung/' . $userId);

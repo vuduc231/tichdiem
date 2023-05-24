@@ -36,10 +36,10 @@
                             <div class="history_company-point text-end">
                                 <div class="history_company-point-title mb-3">
                                     Điểm thưởng: <strong
-                                        class="text-danger">{{ Session::get('user')['data']['totalPoint'] ?? '' }}</strong>
+                                        class="text-danger">{{ Session::get('getUser')['totalPoint'] ?? '' }}</strong>
                                 </div>
                                 <div class="history_company-point-time">Ngày tham gia:
-                                    {{ \Carbon\Carbon::parse(Session::get('user')['data']['created_at'])->format('d/m/Y') ?? '' }}
+                                    {{ \Carbon\Carbon::parse(Session::get('getUser')['created_at'])->format('d/m/Y') ?? '' }}
                                 </div>
                             </div>
 
@@ -49,22 +49,22 @@
                             <div class="history_user-detail">
                                 <div class="history_user-items row">
                                     <div class="history_user-name col-6">Họ và tên:</div>
-                                    <div class="history_user-text col-6">{{ Session::get('user')['data']['name'] ?? '' }}
+                                    <div class="history_user-text col-6">{{ Session::get('getUser')['name'] ?? '' }}
                                     </div>
                                 </div>
                                 <div class="history_user-items row">
                                     <div class="history_user-name col-6">Số điện thoại:</div>
-                                    <div class="history_user-text col-6">{{ Session::get('user')['data']['phone'] ?? '' }}
+                                    <div class="history_user-text col-6">{{ Session::get('getUser')['phone'] ?? '' }}
                                     </div>
                                 </div>
                                 <div class="history_user-items row">
                                     <div class="history_user-name col-6">Email:</div>
-                                    <div class="history_user-text col-6">{{ Session::get('user')['data']['email'] ?? '' }}
+                                    <div class="history_user-text col-6">{{ Session::get('getUser')['email'] ?? '' }}
                                     </div>
                                 </div>
                                 <div class="history_user-items row">
                                     <div class="history_user-name col-6">Địa chỉ:</div>
-                                    <div class="history_user-text col-6">{{ Session::get('user')['data']['address'] ?? '' }}
+                                    <div class="history_user-text col-6">{{ Session::get('getUser')['address'] ?? '' }}
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Họ và tên</div>
-                                        <div>{{ Session::get('user')['data']['name'] ?? '' }}</div>
+                                        <div>{{ Session::get('getUser')['name'] ?? '' }}</div>
                                     </div>
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
@@ -93,7 +93,7 @@
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Số điện thoại</div>
-                                        <div>{{ Session::get('user')['data']['phone'] ?? '' }}</div>
+                                        <div>{{ Session::get('getUser')['phone'] ?? '' }}</div>
                                     </div>
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
@@ -102,7 +102,7 @@
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Email</div>
-                                        <div>{{ Session::get('user')['data']['email'] ?? '' }}</div>
+                                        <div>{{ Session::get('getUser')['email'] ?? '' }}</div>
                                     </div>
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
@@ -111,7 +111,7 @@
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Địa chỉ</div>
-                                        <div>{{ Session::get('user')['data']['address'] ?? '' }}</div>
+                                        <div>{{ Session::get('getUser')['address'] ?? '' }}</div>
                                     </div>
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
@@ -131,7 +131,7 @@
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Tổng diểm tích lũy</div>
-                                        <div>{{ Session::get('user')['data']['totalPoint'] ?? '' }} điểm</div>
+                                        <div>{{ Session::get('getUser')['totalPoint'] ?? '' }} điểm</div>
                                     </div>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
                                     <strong>Điểm hiện tại:</strong>
                                 </div>
                                 <div class="history_user-mobile-total-point">
-                                    <strong class="text-danger">{{ Session::get('user')['data']['totalPoint'] ?? '' }}
+                                    <strong class="text-danger">{{ Session::get('getUser')['totalPoint'] ?? '' }}
                                         điểm</strong>
                                 </div>
                             </div>
