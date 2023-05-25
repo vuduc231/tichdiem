@@ -175,7 +175,9 @@
 
     <!-- Base JS -->
     <script type="text/javascript" src="{{ asset('/assets/js/style.js') }}"></script>
+
     @include('sweetalert::alert')
+    
     @yield('scripts')
 
 </body>
