@@ -40,17 +40,20 @@ class GiftController extends Controller
             $type = Session::get('type');
             $request->merge(['type' => $type]);
             $changeGift = $this->apiServices->changeGift($request->customer_id, $request->gift_id, $request->type);
+            if ($changeGift == "Không đủ điểm thưởng") {
+                $errorMsg = $changeGift;
+                alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Xác nhận');
+            } else {
+                alert()->success("Đổi quà thành công, chúng tôi sẽ liên hệ khi hàng được chuyển tới bạn. Xin cảm ơn!")->timerProgressBar()->autoClose(5000)->showConfirmButton('Xác nhận');
+                Session::forget('getUser');
+                $userId = $request->customer_id;
+                $getUserApi = $this->apiServices->getUser($userId);
+                $request->session()->put('getUser', $getUserApi);
+                Session::forget('type');
+            }
             // dd($changeGift); 
-
-            Session::forget('getUser');
-            $userId = $request->customer_id;
-            $getUserApi = $this->apiServices->getUser($userId);
-            $request->session()->put('getUser', $getUserApi);
-
             // Session::put('user_name', $request->name);
-            alert()->success("Đổi quà thành công, chúng tôi sẽ liên hệ khi hàng được chuyển tới bạn. Xin cảm ơn!")->timerProgressBar()->autoClose(5000)->showConfirmButton('Xác nhận');
             
-            Session::forget('type');
             return redirect()->route('gift.list');
         } catch (\Exception $e) {
             $errorMsg = $e->getMessage();
