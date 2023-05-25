@@ -17,9 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
 
     <!-- Plugins -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link href="{{ asset('/assets/plugins/mdb/mdb.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/plugins/slick/slick.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/plugins/slick/slick-theme.css') }}" />
 
     <!-- Base CSS -->
     <link rel="stylesheet" href="{{ asset('/assets/css/normalize.css') }}" />
@@ -167,11 +167,11 @@
     </div>
 
     <!-- Vendor JS Files -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/assets/plugins/jquery/jquery-3.6.0.min.js') }}"></script>
 
     <!-- Plugins -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/assets/plugins/mdb/mdb.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/assets/plugins/slick/slick.min.js') }}"></script>
 
     <!-- Base JS -->
     <script type="text/javascript" src="{{ asset('/assets/js/style.js') }}"></script>
