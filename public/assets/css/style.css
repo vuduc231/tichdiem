@@ -152,9 +152,13 @@
     display: block;
     object-fit: cover;
     overflow: hidden;
-    padding-top: 37.25%;
+    padding-top: 39.25%;
     position: relative;
     width: 100%;
+}
+
+.img_item {
+    height: 170px;
 }
 
 .img_item img {
@@ -162,6 +166,7 @@
     object-fit: cover;
     width: 100%;
     border-radius: 8px;
+    height: 159px;
 }
 /********* Slick Slider Style  *********/
 .slider_wrapper .slick-next {
@@ -197,7 +202,7 @@
 }
 
 .slider_wrapper .slick-dots {
-    bottom: 30px;
+    bottom: 0px;
 }
 
 .slider_wrapper .slick-dots li {
@@ -236,6 +241,10 @@
     color: var(--white-color);
 }
 
+.slogan_items p {
+    margin: 0;
+}
+
 .slogan_items h1 {
     text-transform: uppercase;
     margin: 0;
@@ -271,7 +280,9 @@
 
 .about_detail-list {
     font-size: var(--fz-16);
+    list-style: disc;
     text-align: justify;
+    padding-left: 2rem;
 }
 
 .about_slogan {
@@ -293,6 +304,9 @@
     font-size: var(--fz-18);
     font-weight: 500;
     text-align: center;
+}
+.about_slogan-txt p{
+    margin: 0;
 }
 
 .about_slogan-img {

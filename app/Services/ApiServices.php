@@ -131,5 +131,10 @@ class ApiServices
         $response = $this->client->get($this->apiUrl . '/history-gift-exchange');
         return json_decode($response->getBody()->getContents(), true);
     }
+    public function getContentList()
+    {
+        $response = $this->client->get($this->apiUrl . '/content/list');
+        return json_decode($response->getBody()->getContents(), true);
+    }
     
 }

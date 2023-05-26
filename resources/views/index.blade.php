@@ -8,24 +8,48 @@
             <div class="row">
                 <div class="col-12 col-md-12 col-xl-8">
                     <div class="slider_wrapper">
-                        <div class="slider_items">
-                            <a class="slider_thumb" href="#"
-                                style="background-image: url({{ asset('/assets/img/Banner-1.webp') }});"></a>
-                        </div>
-                        <div class="slider_items">
-                            <a class="slider_thumb" href="#"
-                                style="background-image: url({{ asset('/assets/img/Banner-1.webp') }});"></a>
-                        </div>
+                        @foreach($getContentList['data'] as $slider_one)
+                            @if ($slider_one['positionContent'] === 'banner_slide_1')
+                                <div class="slider_items">
+                                    <a class="slider_thumb" href="{{ $slider_one['linkContent'] ?? '#' }}"
+                                        style="background-image: url({{ $slider_one['urlContent'] }});"></a>
+                                </div>
+                            @endif
+                        @endforeach
+
+                        @foreach($getContentList['data'] as $slider_two)
+                            @if ($slider_two['positionContent'] === 'banner_slide_2')
+                                <div class="slider_items">
+                                    <a class="slider_thumb" href="{{ $slider_two['linkContent'] ?? '#' }}"
+                                        style="background-image: url({{ $slider_two['urlContent'] }});"></a>
+                                </div>
+                            @endif
+                        @endforeach
+
+                        @foreach($getContentList['data'] as $slider_three)
+                            @if ($slider_three['positionContent'] === 'banner_slide_3')
+                                <div class="slider_items">
+                                    <a class="slider_thumb" href="{{ $slider_three['linkContent'] ?? '#' }}"
+                                        style="background-image: url({{ $slider_three['urlContent'] }});"></a>
+                                </div>
+                            @endif
+                        @endforeach
 
                     </div>
                 </div>
                 <div class="col">
-                    <div class="img_item mb-2">
-                        <img src="{{ asset('/assets/img/Banner-1.webp') }}" alt="">
-                    </div>
-                    <div class="img_item mb-2">
-                        <img src="{{ asset('/assets/img/new-banner-2.webp') }}" alt="">
-                    </div>
+                    @foreach($getContentList['data'] as $bannerSide)
+                        @if ($bannerSide['positionContent'] === 'banner_slide_side_1')
+                        <div class="img_item mb-3">
+                            <img src="{{ $bannerSide['urlContent'] }}" alt="{{ $bannerSide['typeContent'] }}">
+                        </div>
+                        @endif
+                        @if ($bannerSide['positionContent'] === 'banner_slide_side_2')
+                        <div class="img_item mb-3">
+                            <img src="{{ $bannerSide['urlContent'] }}" alt="{{ $bannerSide['typeContent'] }}">
+                        </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -34,30 +58,41 @@
     <section class="slogan pb-5">
         <div class="container">
             <div class="row">
-                <div class="col-6 col-md-3 col-xl-3 mb-3">
-                    <div class="slogan_items text-center">
-                        <h1>ÁP DỤNG TOÀN QUỐC</h1>
-                        <span class="d-block">khi mua sản phẩm Doppelherz</span>
+                @foreach($getContentList['data'] as $bannerSub)
+                    @if ($bannerSub['positionContent'] === 'banner_uudiem_1')
+                    <div class="col-6 col-md-3 col-xl-3 mb-3">
+                        <div class="slogan_items text-center">
+                            <h1>{{ $bannerSub['typeContent'] }}</h1>
+                            <span class="d-block">{!! $bannerSub['descriptionContent'] !!}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 col-md-3 col-xl-3 mb-3">
-                    <div class="slogan_items text-center">
-                        <h1>NHẬN QUÀ HẤP DẪN</h1>
-                        <span class="d-block">khi tích đủ điểm</span>
+                    @endif
+                    @if ($bannerSub['positionContent'] === 'banner_uudiem_2')
+                    <div class="col-6 col-md-3 col-xl-3 mb-3">
+                        <div class="slogan_items text-center">
+                            <h1>{{ $bannerSub['typeContent'] }}</h1>
+                            <span class="d-block">{!! $bannerSub['descriptionContent'] !!}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 col-md-3 col-xl-3 mb-3">
-                    <div class="slogan_items text-center">
-                        <h1>DỄ DÀNG THAO TÁC</h1>
-                        <span class="d-block">chỉ với 01 lần quét mã</span>
+                    @endif
+                    @if ($bannerSub['positionContent'] === 'banner_uudiem_3')
+                    <div class="col-6 col-md-3 col-xl-3 mb-3">
+                        <div class="slogan_items text-center">
+                            <h1>{{ $bannerSub['typeContent'] }}</h1>
+                            <span class="d-block">{!! $bannerSub['descriptionContent'] !!}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 col-md-3 col-xl-3 mb-3">
-                    <div class="slogan_items text-center">
-                        <h1>QUÀ TẶNG CHÍNH HÃNG</h1>
-                        <span class="d-block">từ CHLB. Đức</span>
+                    @endif
+                    @if ($bannerSub['positionContent'] === 'banner_uudiem_4')
+                    <div class="col-6 col-md-3 col-xl-3 mb-3">
+                        <div class="slogan_items text-center">
+                            <h1>{{ $bannerSub['typeContent'] }}</h1>
+                            <span class="d-block">{!! $bannerSub['descriptionContent'] !!}</span>
+                        </div>
                     </div>
-                </div>
+                    @endif
+                @endforeach
+                
             </div>
         </div>
     </section>
@@ -68,106 +103,67 @@
         <div class="container">
             <div class="card overflow-hidden">
                 <div class="card-body card-body_home">
-                    <div>
-                        <h1 class="about_title">GIỚI THIỆU CHƯƠNG TRÌNH KHÁCH HÀNG THÂN THIẾT</h1>
-                    </div>
-                    <div class="mb-5">
-                        <span class="about_desc">Cùng tham gia chương trình <strong>Khách hàng thân thiết cùng
-                                Doppelherz</strong>. để tận hưởng những đặc quyền cho riêng mình. Tích điểm tại bất cứ nơi
-                            đâu để nhận những phần quà hấp dẫn từ thương hiệu số 1 tại Đức. Hơn thế nữa, Doppelherz ra mắt
-                            “Tem tích điểm“ trên mỗi hộp sản phẩm giúp khách hàng tích điểm dễ dàng hơn chỉ với 01 lần quét
-                            mã.</span>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-md-12 col-xl-7">
-                            <div class="about_detail-wrapper">
-                                <p class="about_detail-txt">
-                                    <span class="fw-bold">1. Tên chương trình:</span>
-                                    Khách hàng thân thiết cùng Doppelherz.
-                                </p>
-                                <p class="about_detail-txt">
-                                    <span class="fw-bold">2. Thời gian áp dụng:</span>
-                                    Từ ngày 11/10/2022 đến khi có thông báo mới nhất.
-                                </p>
-                                <p class="about_detail-txt">
-                                    <span class="fw-bold">3. Đối tượng áp dụng:</span>
-                                    Tất cả các khách hàng mua sản phẩm Doppelherz tại các hiệu thuốc, nhà thuốc, chuỗi cửa
-                                    hàng, sàn thương mại điện tử, website, kênh online.. là đại lý bán hàng, nhà phân phối
-                                    chính thức của Doppelherz.
-                                </p>
-                                <p class="about_detail-txt">
-                                    <b>Lưu ý</b>:
-                                    Chương trình dành riêng cho người tiêu dùng cuối và không áp dụng cho khách hàng là đại
-                                    lý/nhà phân phối chính thức của Doppelherz. Mỗi mã QR chỉ được quét và tích điểm 01 lần
-                                    duy nhất cho người tiêu dùng cuối. Công ty sẽ truy cứu trách nhiệm đối với đại lý/nhà
-                                    phân phối tham gia chương trình này.
-                                </p>
-
-                                <p class="about_detail-txt">
-                                    <span class="fw-bold">4. Nội dung chương trình:</span>
-                                <ul class="about_detail-list">
-                                    <li>
-                                        <p>Mặt trong mỗi vỏ hộp sản phẩm Doppelherz sẽ có in 01 “Tem tích điểm”. Khách hàng
-                                            quét mã QR của tem, đăng nhập hệ thống tích điểm <a
-                                                href="https://tichdiem.doppelherz.vn/">tichdiem.doppelherz.vn</a>, tích lũy
-                                            điểm số sau mỗi lần mua sản phẩm, quy đổi quà tương ứng khi đủ điều kiện.</p>
-                                    </li>
-                                    <li>
-                                        <p>Chương trình bắt đầu áp dụng với sản phẩm Aktiv-Meno, các sản phẩm khác sẽ liên
-                                            tục được cập nhật trong thời gian sớm nhất.</p>
-                                    </li>
-                                    <li>
-                                        <p>Khách hàng là người tiêu dùng mới khi đăng ký tài khoản trên website <a
-                                                href="https://tichdiem.doppelherz.vn/">tichdiem.doppelherz.vn</a> sẽ được
-                                            cộng 5 điểm vào tài khoản.</p>
-                                    </li>
-                                </ul>
-                                </p>
-
+                    @foreach($getContentList['data'] as $content)
+                        @if ($content['positionContent'] === 'banner_vuong')
+                        <div>
+                            {{-- <h1 class="about_title">GIỚI THIỆU CHƯƠNG TRÌNH KHÁCH HÀNG THÂN THIẾT</h1> --}}
+                            <h1 class="about_title">{{ $content['typeContent'] ?? '' }}</h1>
+                        </div>
+                        
+                        <div class="row">
+                            {!! $content['descriptionContent'] ?? '' !!}
+                            <div class="col-12 col-md-0 col-xl-5">
+                                <div class="about_img" data-mdb-toggle="modal" data-mdb-target="#gift_modal" role="button">
+                                    <img src="{{ $content['urlContent'] ?? '' }}" alt="">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-0 col-xl-5">
-                            <div class="about_img" data-mdb-toggle="modal" data-mdb-target="#gift_modal" role="button">
-                                <img src="/assets/img/new-banner-5.webp" alt="">
-                            </div>
-
-                        </div>
-                    </div>
+                        @endif
+                    @endforeach
                 </div>
                 <div class="about_slogan card-body card-body_home">
                     <div class="row">
                         <div class="col-12 col-md-12 col-xl-4">
-                            <div class="about_slogan-wrapper">
-                                <div class="about_slogan-img">
-                                    <img class="about_slogan-img" src="/assets/img/mk.png" alt="">
-                                </div>
-                                <div class="about_slogan-txt">
-                                    <p>Sản Phẩm</p>
-                                    <p>Chính Hãng 100%</p>
-                                </div>
-                            </div>
+                            @foreach($getContentList['data'] as $bannerDes_one)
+                                @if ($bannerDes_one['positionContent'] === 'banner_mota_1')
+                                    <div class="about_slogan-wrapper">
+                                        <div class="about_slogan-img">
+                                            <img class="about_slogan-img" src="{{ $bannerDes_one['urlContent'] ?? '' }}" alt="{{ $bannerDes_one['typeContent'] ?? '' }}">
+                                        </div>
+                                        <div class="about_slogan-txt">
+                                            {!! $bannerDes_one['descriptionContent'] ?? '' !!}
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="col-12 col-md-12 col-xl-4">
-                            <div class="about_slogan-wrapper">
-                                <div class="about_slogan-img">
-                                    <img class="about_slogan-img" src="/assets/img/No1.png" alt="">
-                                </div>
-                                <div class="about_slogan-txt">
-                                    <p>Thương Hiệu</p>
-                                    <p>Số 1 Tại Đức</p>
-                                </div>
-                            </div>
+                            @foreach($getContentList['data'] as $bannerDes_two)
+                                @if ($bannerDes_two['positionContent'] === 'banner_mota_2')
+                                    <div class="about_slogan-wrapper">
+                                        <div class="about_slogan-img">
+                                            <img class="about_slogan-img" src="{{ $bannerDes_two['urlContent'] ?? '' }}" alt="{{ $bannerDes_two['typeContent'] ?? '' }}">
+                                        </div>
+                                        <div class="about_slogan-txt">
+                                            {!! $bannerDes_two['descriptionContent'] ?? '' !!}
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="col-12 col-md-12 col-xl-4">
-                            <div class="about_slogan-wrapper">
-                                <div class="about_slogan-img">
-                                    <img class="about_slogan-img" src="/assets/img/ship.png" alt="">
-                                </div>
-                                <div class="about_slogan-txt">
-                                    <p>Giao Hàng</p>
-                                    <p>Toàn Quốc</p>
-                                </div>
-                            </div>
+                            @foreach($getContentList['data'] as $bannerDes_three)
+                                @if ($bannerDes_three['positionContent'] === 'banner_mota_3')
+                                    <div class="about_slogan-wrapper">
+                                        <div class="about_slogan-img">
+                                            <img class="about_slogan-img" src="{{ $bannerDes_three['urlContent'] ?? '' }}" alt="{{ $bannerDes_three['typeContent'] ?? '' }}">
+                                        </div>
+                                        <div class="about_slogan-txt">
+                                            {!! $bannerDes_three['descriptionContent'] ?? '' !!}
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -192,9 +188,13 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="product_with-img">
-                                <img src="{{ asset('/assets/img/Banner_Woman.webp') }}" alt="">
-                            </div>
+                            @foreach($getContentList['data'] as $bannerProduct_woman)
+                                @if ($bannerProduct_woman['positionContent'] === 'banner_nhomsp_1')
+                                    <div class="product_with-img">
+                                        <img src="{{ $bannerProduct_woman['urlContent'] }}" alt="">
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="col-md-12 col-xl-8">
                             <div class="row product_slider-wrapper">
@@ -237,9 +237,13 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="product_with-img">
-                                <img src="{{ asset('/assets/img/Banner_Man.webp') }}" alt="">
-                            </div>
+                            @foreach($getContentList['data'] as $bannerProduct_man)
+                                @if ($bannerProduct_man['positionContent'] === 'banner_nhomsp_2')
+                                    <div class="product_with-img">
+                                        <img src="{{ $bannerProduct_man['urlContent'] }}" alt="">
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="col-md-12 col-xl-8">
                             <div class="row product_slider-wrapper">
@@ -282,9 +286,13 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="product_with-img">
-                                <img src="{{ asset('/assets/img/Banner_Child.webp') }}" alt="">
-                            </div>
+                            @foreach($getContentList['data'] as $bannerProduct_child)
+                                @if ($bannerProduct_child['positionContent'] === 'banner_nhomsp_3')
+                                    <div class="product_with-img">
+                                        <img src="{{ $bannerProduct_child['urlContent'] }}" alt="">
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                         <div class="col-md-12 col-xl-8">
                             <div class="row product_slider-wrapper">
@@ -320,71 +328,85 @@
         <div class="container">
             <div class="card">
                 <div class="card-body card-body_home">
-                    <div class="row catelog_wrapper">
-                        <div class="col-3">
-                            <a class="catelog_link" href="#" target="_blank">
-                                <img src="/assets/img/1.jpg" alt="" class="catelog_img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a class="catelog_link" href="#" target="_blank">
-                                <img src="/assets/img/2.jpg" alt="" class="catelog_img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a class="catelog_link" href="#" target="_blank">
-                                <img src="/assets/img/3.jpg" alt="" class="catelog_img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a class="catelog_link" href="#" target="_blank">
-                                <img src="/assets/img/4.jpg" alt="" class="catelog_img">
-                            </a>
-                        </div>
-                        <div class="col-3">
-                            <a class="catelog_link" href="#" target="_blank">
-                                <img src="/assets/img/4.jpg" alt="" class="catelog_img">
-                            </a>
-                        </div>
+                    <div class="catelog_wrapper">
+                        @foreach($getContentList['data'] as $bannerQC_one)
+                            @if ($bannerQC_one['positionContent'] === 'banner_qc_1')
+                                <div class="">
+                                    <a class="catelog_link" href="{{ $bannerQC_one['linkContent'] ?? '#' }}" target="_blank">
+                                        <img src="{{ $bannerQC_one['urlContent'] ?? '#' }}" alt="" class="catelog_img" />
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                        @foreach($getContentList['data'] as $bannerQC_two)
+                            @if ($bannerQC_two['positionContent'] === 'banner_qc_2')
+                                <div class="">
+                                    <a class="catelog_link" href="{{ $bannerQC_two['linkContent'] ?? '#' }}" target="_blank">
+                                        <img src="{{ $bannerQC_two['urlContent'] ?? '#' }}" alt="" class="catelog_img" />
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                        @foreach($getContentList['data'] as $bannerQC_three)
+                            @if ($bannerQC_three['positionContent'] === 'banner_qc_3')
+                                <div class="">
+                                    <a class="catelog_link" href="{{ $bannerQC_three['linkContent'] ?? '#' }}" target="_blank">
+                                        <img src="{{ $bannerQC_three['urlContent'] ?? '#' }}" alt="" class="catelog_img" />
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                        @foreach($getContentList['data'] as $bannerQC_four)
+                            @if ($bannerQC_four['positionContent'] === 'banner_qc_4')
+                                <div class="">
+                                    <a class="catelog_link" href="{{ $bannerQC_four['linkContent'] ?? '#' }}" target="_blank">
+                                        <img src="{{ $bannerQC_four['urlContent'] ?? '#' }}" alt="" class="catelog_img" />
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- ======= End Catalog ======= -->
-@endsection
 
-<!-- Modal -->
-<div class="modal fade" id="gift_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal_gift">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title" id="exampleModalLabel">Danh sách phần quà</div>
-                <div type="button" class="gift_close" data-mdb-dismiss="modal">
-                    <i class="fa-solid fa-xmark" style="color: #c42726;"></i>
+    <!-- ======= Modal ======= -->
+    <div class="modal fade" id="gift_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal_gift">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title" id="exampleModalLabel">Danh sách phần quà</div>
+                    <div type="button" class="gift_close" data-mdb-dismiss="modal">
+                        <i class="fa-solid fa-xmark" style="color: #c42726;"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    @foreach($thongTinQuaTang as $value)
-                    <div class="col-xl-2 mb-3">
-                        <div class="gift_wrapper">
-                            <div class="gift_img">
-                                <img src="{{ $value['image'] }}" alt="{{ $value['name'] }}">
-                            </div>
-                            <div class="gift_title">
-                                <h5>{{ $value['name'] }}</h5>
+                <div class="modal-body">
+                    <div class="row">
+                        @foreach($thongTinQuaTang as $value)
+                        <div class="col-xl-2 mb-3">
+                            <div class="gift_wrapper">
+                                <div class="gift_img">
+                                    <img src="{{ $value['image'] }}" alt="{{ $value['name'] }}">
+                                </div>
+                                <div class="gift_title">
+                                    <h5>{{ $value['name'] }}</h5>
+                                </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+@endsection
 
 @section('scripts')
+    <!-- Plugins -->
+    <script type="text/javascript" src="{{ asset('/assets/plugins/slick/slick.min.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('.slider_wrapper').slick({
@@ -401,6 +423,8 @@
                 slidesToShow: 4,
                 slidesToScroll: 1,
                 autoplay: true,
+                prevArrow: false,
+                nextArrow: false,
                 autoplaySpeed: 3000,
                 pauseOnHover: true,
                 speed: 500,
@@ -414,22 +438,23 @@
                     {
                         breakpoint: 767,
                         settings: {
-                            slidesToShow: 1,
+                            slidesToShow: 2,
                         }
                     }
                 ]
             });
             $('.product_slider-wrapper').slick({
                 infinite: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
+                // autoplay: true,
+                // autoplaySpeed: 3000,
                 pauseOnHover: true,
                 speed: 500,
                 cssEase: 'linear',
                 slidesToShow: 3,
                 slidesToScroll: 3,
                 rows: 2,
-                responsive: [{
+                responsive: [
+                    {
                         breakpoint: 992,
                         settings: {
                             slidesToShow: 3

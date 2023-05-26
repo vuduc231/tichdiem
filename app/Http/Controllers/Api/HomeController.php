@@ -23,12 +23,14 @@ class HomeController extends Controller
         $categoryChild = $this->apiServices->getChild();
         $categoryMen = $this->apiServices->getMen();
         $categoryWoman = $this->apiServices->getWoman();
-        // dd($categoryWoman);
+        $getContentList = $this->apiServices->getContentList();
+        // dd($getContentById);
         return view('index')
         ->with('categoryChild', $categoryChild)
         ->with('categoryMen', $categoryMen)
         ->with('categoryWoman', $categoryWoman)
-        ->with('thongTinQuaTang', $thongTinQuaTang);
+        ->with('thongTinQuaTang', $thongTinQuaTang)
+        ->with('getContentList', $getContentList);
     }
 
     /**

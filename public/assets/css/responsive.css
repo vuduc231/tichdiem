@@ -283,4 +283,38 @@
         border-radius: var(--border-radius-main);
         overflow: hidden;
     }
+    .product_slider-wrapper .slick-prev {
+        left: 0;
+        z-index: 2;
+    }
+    .product_slider-wrapper .slick-next {
+        right: 0;
+    }
+    .product_slider-title h3 {
+        font-size: var(--fz-14);
+    }
+    .product_slider-wrapper .slick-prev, .product_slider-wrapper .slick-next {
+        width: 30px;
+        height: 30px;
+    }
+    .slick-prev:before, .slick-next:before {
+        font-size: 14px;
+    }
+    .product_slider-content {
+        margin: 20px;
+    }
+    .product_slider-action {
+        padding-bottom: 0px;
+    }
+    .product_slider-title {
+        padding-bottom: 6px;
+    }
+
+    .about_slogan-img, .about_slogan-txt {
+        flex: 1 1;
+    }
+    .modal_loginRegister .modal_loginRegister-close {
+        right: -4px;
+        top: -22px;
+    }
 }
