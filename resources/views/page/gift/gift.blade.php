@@ -128,7 +128,7 @@
                             
                             <div class="mb-3 exchangeGift-action d-flex align-items-center justify-content-end">
                                 <button class="btn btn-warning p-3 me-3 shadow-1" style="--mdb-btn-bg: #f97316; --mdb-btn-box-shadow: 0 4px 9px -4px #f97316; --mdb-btn-hover-bg: #f97316;--mdb-btn-focus-bg: #f97316;text-transform: none;" data-mdb-toggle="modal" data-mdb-target="#checkInfor-{{ $value['id'] }}">Kiểm tra thông tin</button>
-                                <form action="{{ route('gift.change') }}" method="POST">   
+                                <form action="{{ route('gift.change') }}" method="POST" class="m-0">   
                                     @csrf
                                     <input type="hidden" name="gift_id" value="{{ $value['id'] }}">
                                     <input type="hidden" name="customer_id" value="{{ Session::get('getUser')['id'] }}">
@@ -199,11 +199,4 @@
         </div>
     </div>
 </div>
-{{-- @if (Session::has('giftError')) --}}
-<script>
-    
-
-
-</script>
-{{-- @endif --}}
 @endforeach
