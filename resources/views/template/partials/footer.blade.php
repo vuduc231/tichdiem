@@ -40,7 +40,11 @@
     <div class="footer_bottom">
         <div class="container">
             <span class="txt-medium">
-                Nội dung được bảo vệ, vui lòng không copy - Copyright 2022 © <strong>Doppelherz.vn</strong>
+                @foreach($getContentList['data'] as $footer_two)
+                    @if ($footer_two['positionContent'] === 'thongtin_chantrang2')
+                        {!! $footer_two['descriptionContent'] !!}
+                    @endif
+                @endforeach
             </span>
         </div>
     </div>

@@ -874,6 +874,10 @@
     background-color: #ef4444;
 }
 
+.footer_bottom p {
+    margin: 0;
+}
+
 /********* CUSTOM TABLE *********/
 .custom_table {
 }
