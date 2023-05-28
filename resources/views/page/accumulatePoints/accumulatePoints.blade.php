@@ -22,17 +22,16 @@
                     <div class="acculatePoint_body-wrapper">
                         <div class="acculatePoint_body-left">
                             <div class="acculatePoint_body-img">
-                                <img class="" src="https://tichdiem.doppelherz.vn/_next/image?url=https%3A%2F%2Fdoppelherz.vn%2Fwp-content%2Fuploads%2F2020%2F12%2FOMGv-front-01.png&w=640&q=75" alt="" />
+                                <img class="" src="{{ $product['image'] }}" alt="{{ $product['name'] }}" />
                             </div>
                         </div>
                         <div class="acculatePoint_body-right">
                             <div class="acculatePoint_body-heading-wrapper">
                                 <span class="acculatePoint_body-right-text pe-3 text-black">Sản phẩm:</span>
-                                Omega-3 + Folic axit + B6 + B12
+                                {{ $product['name'] }}
                             </div>
                             <div class="acculatePoint_body-desc-wrapper">
-                                Giúp cung cấp Omega-3 và vitamin thiết yếu cho cơ thể;
-                                Hỗ trợ tăng cường sức khỏe tim mạch và não bộ.
+                                {!! $product['description'] !!}
                             </div>
                             <div class="acculatePoint_body-term-wrapper">
                                 Bằng việc bấm "Tích điểm ngay" tôi đồng ý với <a class="fw-bold" href="{{ route('terms') }}" target="_blank">điều khoản</a> và <a class="fw-bold" href="{{ route('rule') }}" target="_blank">quy định</a> của chương trình
@@ -40,16 +39,19 @@
                         </div>
                     </div>
                     <div class="acculatePoint_body-bottom">
-                        NGHNNHLOadsL
+                        {{ $special_code }}
                     </div>
                 </div>
             </div>
         </div>
         <div class="acculatePoint_actions">
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('accumulatePointsApi', ['promotion_id' => $promotion_id, 'product_id' => $product['id'], 'special_code' => $special_code]) }}">
                 @csrf
-                <button type="button" class="btn btn-danger fs-3 p-4">Tích điểm ngay</button>
+                <input type="hidden" name="special_code" value="{{ $special_code }}">
+                <input type="hidden" name="product_id" value="{{ $product['id'] }}">
+                <button type="submit" class="btn btn-danger fs-3 p-4">Tích điểm ngay</button>
             </form>
+            
         </div>
     </div>
 @endsection

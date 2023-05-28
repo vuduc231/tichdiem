@@ -88,13 +88,22 @@ class ApiServices
         ]);
         return json_decode((string)$response->getBody()->getContents(), true);
     }
-    public function accumulatePoint($special_code, $user, $product_id)
+    public function accumulatePoint($special_code, $user, $product_id, $promotion_id)
     {
         $url = $this->apiUrl . '/tichdiem';
         $response = $this->client->post($url, [
             'special_code' => $special_code,
             'user' => $user,
-            'product_id' => $product_id
+            'product_id' => $product_id,
+            'promotion_id' => $promotion_id
+        ]);
+        return json_decode((string)$response->getBody()->getContents(), true);
+    }
+    public function infoQr($specialCode)
+    {
+        $url = $this->apiUrl . '/info-qr-code';
+        $response = $this->client->post($url, [
+            'special_code' => $specialCode
         ]);
         return json_decode((string)$response->getBody()->getContents(), true);
     }
@@ -109,6 +118,11 @@ class ApiServices
     public function getThongTinQuaTang()
     {
         $response = $this->client->get($this->apiUrl . '/thongtinquatang');
+        return json_decode($response->getBody()->getContents(), true);
+    }
+    public function product($id)
+    {
+        $response = $this->client->get($this->apiUrl . '/product/'. $id);
         return json_decode($response->getBody()->getContents(), true);
     }
 

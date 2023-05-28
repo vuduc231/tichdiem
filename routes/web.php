@@ -49,13 +49,16 @@ Route::group(['middleware' => 'auth.login:user'], function () {
     Route::post('/doi-qua/changeGift', [GiftController::class, 'changeGift'])->name('gift.change');
     Route::post('/doi-qua/update', [GiftController::class, 'changeInfo'])->name('gift.info');
 });
-
-
+    
 // History
 Route::get('/lich-su-doi-qua', [HistoryController::class, 'index'])->name('history')->middleware('auth.login:user');
 
 // Accumulate Points
-Route::get('/tich-diem/{code}', [AccumulatePoints::class, 'index'])->name('accumulatePoints')->middleware('auth.login:user');
+Route::group(['middleware' => 'auth.login:user'], function () {
+    Route::get('/tich-diem/{promotion_id}/{product_id}/{special_code}', [AccumulatePoints::class, 'index'])->name('accumulatePoints');
+    Route::post('/tich-diem/{promotion_id}/{product_id}/{special_code}', [AccumulatePoints::class, 'accumulatePointApi'])->name('accumulatePointsApi');
+});
+
 
 // Contact
 Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');
