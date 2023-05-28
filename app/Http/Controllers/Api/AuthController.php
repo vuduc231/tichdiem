@@ -82,37 +82,52 @@ class AuthController extends Controller
     public function registerApi(Request $request)
     {
         try {
+            if (empty($request->name) || empty($request->phone) || empty($request->email) || empty($request->password)) {
+                $errorMsg = "Vui lòng điền đầy đủ thông tin!";
+                alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Tiếp tục');
+                return back()->with('registerError', $errorMsg);
+            }
+        
             $user = $this->apiServices->register($request->name, $request->phone, $request->email, $request->password);
+        
             if (isset($user['error']) && isset($user['error']['errorInfo']) && $user['error']['errorInfo'][1] == 1062) {
                 if (strpos($user['error']['errorInfo'][2], 'customers_phone_unique') !== false) {
                     $errorMsg = "Số điện thoại đã được sử dụng!";
+                    alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Tiếp tục');
                 } elseif (strpos($user['error']['errorInfo'][2], 'customers_email_unique') !== false) {
                     $errorMsg = "Địa chỉ email đã được sử dụng!";
+                    alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Tiếp tục');
                 } else {
                     $errorMsg = "Có lỗi xảy ra!";
+                    alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Tiếp tục');
                 }
                 return back()->with('registerError', $errorMsg);
             }
-            
-            if (isset($user['name']) && isset($user['phone']) && isset($user['email'])) {
+            // dd($user);
+            if (isset($user['status_code']) && $user['status_code'] == 200 && isset($user['message'])) {
+                $successMsg = $user['message'];
+                alert()->success($successMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Tiếp tục');
                 return redirect()->route('login');
-            } else {
-                $errorMsg = "Vui lòng điền đầy đủ thông tin!";
-                return back()->with('registerError', $errorMsg);
             }
+        
+            // alert()->success("Đăng ký thành công")->timerProgressBar()->autoClose(5000)->showConfirmButton('Tiếp tục');
+            // return redirect()->route('login');
         } catch (Exception $e) {
-
-            $errorMsg = "Có lỗi xảy ra!";
+            $errorMsg = "Có lỗi xảy ra!";
             error_log($e->getMessage());
+            
             //if 401 or 404 is in error message
             if (strpos($e->getMessage(), '401') !== false || strpos($e->getMessage(), '404') !== false) {
                 $errorMsg = "Tên đăng nhập hoặc mật khẩu không đúng định dạng!";
             } else {
                 $errorMsg = $e->getMessage();
             }
-            //return back with login error
+        
+            //return back with register error
+            alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Tiếp tục');
             return back()->with('registerError', $errorMsg);
         }
+        
     }
 
     public function logout(Request $request)

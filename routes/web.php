@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\TermsController;
 use App\Http\Controllers\Api\GiftController;
 use App\Http\Controllers\Api\HistoryController;
 use App\Http\Controllers\Api\ContactController;
+use App\Http\Controllers\Api\AccumulatePoints;
 
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,9 @@ Route::group(['middleware' => 'auth.login:user'], function () {
 
 // History
 Route::get('/lich-su-doi-qua', [HistoryController::class, 'index'])->name('history')->middleware('auth.login:user');
+
+// Accumulate Points
+Route::get('/tich-diem/{code}', [AccumulatePoints::class, 'index'])->name('accumulatePoints')->middleware('auth.login:user');
 
 // Contact
 Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');

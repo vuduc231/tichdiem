@@ -317,4 +317,14 @@
         right: -4px;
         top: -22px;
     }
+    .about_detail-list {
+        text-align: left;
+    }
+    .footer {
+        padding-bottom: 70px;
+    }
+
+    #navbar {
+        display: flex;
+    }
 }

@@ -93,7 +93,7 @@
     
     const registerForm = document.getElementById('registerForm');
 
-    function validatePassword() {
+    function validateForm() {
         const name = nameInput.value;
         const phone = phoneInput.value;
         const password = passwordInput.value;
@@ -114,6 +114,10 @@
             phoneError.classList.remove('d-none');
             hasError = true;
         } else if (isNaN(phone)) {
+            phoneError.textContent = "Số điện thoại không đúng định dạng.";
+            phoneError.classList.remove('d-none');
+            hasError = true;
+        } else if (!/^((0\d{9})|\+84\d{9})$/.test(phone)) {
             phoneError.textContent = "Số điện thoại không đúng định dạng.";
             phoneError.classList.remove('d-none');
             hasError = true;
@@ -142,10 +146,10 @@
         }
     }
 
-    nameInput.addEventListener('keyup', validatePassword);
-    phoneInput.addEventListener('keyup', validatePassword);
-    passwordInput.addEventListener('keyup', validatePassword);
-    rePasswordInput.addEventListener('keyup', validatePassword);
-    registerForm.addEventListener('submit', validatePassword);
+    nameInput.addEventListener('keyup', validateForm);
+    phoneInput.addEventListener('keyup', validateForm);
+    passwordInput.addEventListener('keyup', validateForm);
+    rePasswordInput.addEventListener('keyup', validateForm);
+    registerForm.addEventListener('submit', validateForm);
 </script>
 @endsection

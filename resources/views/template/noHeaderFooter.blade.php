@@ -8,7 +8,7 @@
     <title>@yield('title') - Doppelherz</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link rel="shortcut icon" href="{{ asset('/assets/img/favicon.ico') }}" />
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -24,21 +24,17 @@
 
     <!-- Base CSS -->
     <link rel="stylesheet" href="{{ asset('/assets/css/normalize.css') }}" />
-    <link rel="stylesheet" href="{{ asset('/assets/css/variables.css') }}" />
-    <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('/assets/css/responsive.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/assets/css/variables.css') }}" />    
+    <link rel="stylesheet" href="{{ asset('/assets/css/styleNoHeaderFooter.css') }}" />
+
     @yield('style')
 </head>
 
 <body>
     <div class="wrapper">
-        @include('template.partials.header-loginRegister')
-
         <main id="main_layout">
             @yield('main_section')
         </main>
-
-        @include('template.partials.footer')
     </div>
 
     <!-- Vendor JS Files -->

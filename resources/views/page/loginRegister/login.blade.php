@@ -84,9 +84,14 @@
                 phoneError.textContent = "Số điện thoại không đúng định dạng.";
                 phoneError.classList.remove('d-none');
                 hasError = true;
+            } else if (!/^((0\d{9})|\+84\d{9})$/.test(phone)) {
+                phoneError.textContent = "Số điện thoại không đúng định dạng.";
+                phoneError.classList.remove('d-none');
+                hasError = true;
             } else {
                 phoneError.classList.add('d-none');
             }
+            
             if (!password) {
                 passwordError.textContent = "Vui lòng nhập mật khẩu.";
                 passwordError.classList.remove('d-none');

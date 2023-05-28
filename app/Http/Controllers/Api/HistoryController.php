@@ -25,7 +25,7 @@ class HistoryController extends Controller
     {
         $historyPoint = $this->apiServices->historyPoint();
         $historyExchange = $this->apiServices->historyExchange();
-        // dd($historyExchange);
+        dd($historyExchange);
         return view('page.history.history')
         ->with('historyExchange', $historyExchange)
         ->with('historyPoint', $historyPoint);

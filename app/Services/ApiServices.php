@@ -88,6 +88,16 @@ class ApiServices
         ]);
         return json_decode((string)$response->getBody()->getContents(), true);
     }
+    public function accumulatePoint($special_code, $user, $product_id)
+    {
+        $url = $this->apiUrl . '/tichdiem';
+        $response = $this->client->post($url, [
+            'special_code' => $special_code,
+            'user' => $user,
+            'product_id' => $product_id
+        ]);
+        return json_decode((string)$response->getBody()->getContents(), true);
+    }
 
     // ####### GET METHOD #######
     public function getUser($userId)

@@ -7,39 +7,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title') - Doppelherz</title>
 
-    <!-- Favicon -->
+    {{-- Favicon --}}
     <link rel="shortcut icon" href="{{ asset('/assets/img/favicon.ico') }}" />
 
-    <!-- Font Awesome -->
+    {{-- Font Awesome --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 
-    <!-- Google Fonts -->
+    {{-- Google Fonts --}}
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
 
-    <!-- Plugins -->
+    {{-- Plugins --}}
     <link href="{{ asset('/assets/plugins/mdb/mdb.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/plugins/slick/slick.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/plugins/slick/slick-theme.css') }}" />
 
-    <!-- Base CSS -->
+    {{-- Base CSS --}}
     <link rel="stylesheet" href="{{ asset('/assets/css/normalize.css') }}" />
     <link rel="stylesheet" href="{{ asset('/assets/css/variables.css') }}" />
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('/assets/css/responsive.css') }}" />
+
     @yield('style')
 </head>
 
 <body>
     <div class="wrapper">
+        {{-- Header --}}
         @include('template.partials.header')
 
+        {{-- Main Layout --}}
         <main id="main_layout">
             @yield('main_section')
         </main>
 
+        {{-- Footer --}}
         @include('template.partials.footer')
 
-        <!-- Modal -->
+        {{-- Menu Bottom --}}
+        @include('template.partials.menuBottom')
+
+        {{-- Modal --}}
         <div class="modal fade" id="loginRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered modal_loginRegister">
                 <div class="modal-content">
@@ -170,17 +177,33 @@
 
     
 
-    <!-- Vendor JS Files -->
+    {{--  Vendor JS Files --}}
     <script type="text/javascript" src="{{ asset('/assets/plugins/jquery/jquery-3.6.0.min.js') }}"></script>
 
-    <!-- Plugins -->
+    {{-- Plugins --}}
     <script type="text/javascript" src="{{ asset('/assets/plugins/mdb/mdb.min.js') }}"></script>
 
-    <!-- Base JS -->
+    {{-- Base JS --}}
     <script type="text/javascript" src="{{ asset('/assets/js/style.js') }}"></script>
 
     @include('sweetalert::alert')
-    
+    <script>
+        // When the user scrolls down 20px from the top of the document, slide down the navbar
+        window.onscroll = function () {
+          scrollFunction();
+        };
+  
+        function scrollFunction() {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            document.getElementById('navbar').style.bottom = '0';
+          } else {
+            document.getElementById('navbar').style.bottom = '-70px';
+          }
+        }
+      </script>
     @yield('scripts')
 
 </body>
