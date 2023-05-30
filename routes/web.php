@@ -55,8 +55,8 @@ Route::get('/lich-su-doi-qua', [HistoryController::class, 'index'])->name('histo
 
 // Accumulate Points
 Route::group(['middleware' => 'auth.login:user'], function () {
-    Route::get('/tich-diem/{promotion_id}/{product_id}/{special_code}', [AccumulatePoints::class, 'index'])->name('accumulatePoints');
-    Route::post('/tich-diem/{promotion_id}/{product_id}/{special_code}', [AccumulatePoints::class, 'accumulatePointApi'])->name('accumulatePointsApi');
+    Route::get('/tichdiem/{promotion_id}/{product_id}/{special_code}', [AccumulatePoints::class, 'index'])->name('accumulatePoints');
+    Route::post('/tichdiem/{promotion_id}/{product_id}/{special_code}', [AccumulatePoints::class, 'accumulatePointApi'])->name('accumulatePointsApi');
 });
 
 
