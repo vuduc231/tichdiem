@@ -8,7 +8,7 @@
     <title>@yield('title') - Doppelherz</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link rel="shortcut icon" href="{{ asset('/assets/img/favicon.ico') }}" />
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />

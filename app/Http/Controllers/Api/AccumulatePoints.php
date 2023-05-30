@@ -49,8 +49,14 @@ class AccumulatePoints extends Controller
             $request->product_id = $request->input('product_id');
             
             $infoQr = $this->apiServices->infoQr($request->specialCode);
+            $accumulatePoint = $this->apiServices->accumulatePoint($request->special_code, $request->user, $request->product_id, $request->promotion_id);
+            // dd($accumulatePoint);
             // dd($infoQr);
             if (empty($infoQr)) {
+                $errorMsg = "Mã đã được kích hoạt, vui lòng thử lại";
+                alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Xác nhận');
+                return redirect()->back();
+            } else if ($request->specialCode !== $request->input('special_code')) {
                 $errorMsg = "Mã đã được kích hoạt, vui lòng thử lại";
                 alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Xác nhận');
                 return redirect()->back();
@@ -58,11 +64,16 @@ class AccumulatePoints extends Controller
                 $errorMsg = "Mã đã được kích hoạt, vui lòng thử lại";
                 alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Xác nhận');
                 return redirect()->back();
+            } else if($accumulatePoint === 'Vượt quá giới hạn quét trong tháng!') {
+                $errorMsg = "Vượt quá giới hạn quét trong tháng!";
+                alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Xác nhận');
+                return redirect()->back();
             } else {
                 $accumulatePoint = $this->apiServices->accumulatePoint($request->special_code, $request->user, $request->product_id, $request->promotion_id);
                 alert()->success("Tích điểm thành công!")->timerProgressBar()->autoClose(5000)->showConfirmButton('Xác nhận');
                 return redirect()->back();
             }
+            // dd($infoQr['status']);
             
             // dd($infoQr);
         } catch (Exception $e) {
