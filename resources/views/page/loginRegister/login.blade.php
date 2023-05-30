@@ -70,7 +70,6 @@
         const submitForm = document.getElementById('submitForm');
 
         function validateForm() {
-            event.preventDefault();
             const phone = phoneInput.value;
             const password = passwordInput.value;
 
@@ -99,10 +98,8 @@
             } else {
                 passwordError.classList.add('d-none');
             }
-
-            if (!hasError) {
-                
-                submitForm.submit();
+            if (hasError) {
+                event.preventDefault();
             }
         }
 

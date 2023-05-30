@@ -11,20 +11,10 @@ class CheckLoggedIn
 {
     public function handle(Request $request, Closure $next): Response
     {
-        //get current user in session
-        $user = session()->get('user');
-        if (!$user) {
+        if (!session('user') || !session('access_token')) {
+            session(['returnUrl' => url()->current()]);
             return redirect()->route('login');
         }
-
-        //get current token in session
-        $token = session()->get('access_token');
-        if (!$token) {
-            return redirect()->route('login');
-        }
-
-        //if not, redirect to login page
-        // return redirect('/login');
 
         return $next($request);
     }

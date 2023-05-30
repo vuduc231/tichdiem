@@ -56,7 +56,13 @@ class AuthController extends Controller
                 $request->session()->put('getUser', $getUserApi);
                 $request->session()->put('access_token', $access_token);
                 $request->session()->put('user', $user);
+                
                 alert()->success("Đăng nhập thành công",)->timerProgressBar()->autoClose(5000)->showConfirmButton('Tiếp tục');
+
+                if ($returnUrl = session('returnUrl')) {
+                    session()->forget('returnUrl');
+                    return redirect()->to($returnUrl);
+                }
                 return redirect()->route('home');
             } else {
                 $errorMsg = "Tên đăng nhập hoặc mật khẩu không đúng!";

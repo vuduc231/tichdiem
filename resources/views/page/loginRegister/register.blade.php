@@ -36,7 +36,8 @@
                             </div>
                        </div>
                         <div class="col-12 position-relative mb-4">
-                            <input type="email" name="email" class="form-control fs-4" placeholder="Email">
+                            <input type="email" name="email" id="email" class="form-control fs-4" placeholder="Email">
+                            <span id="email-error" class="text-danger d-none fs-5"></span>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-12 col-xl-6 position-relative mb-4">
@@ -83,11 +84,13 @@
 <script>
     const nameInput = document.getElementById('name');
     const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const rePasswordInput = document.getElementById('re-password');
 
     const nameError = document.getElementById('name-error');
     const phoneError = document.getElementById('phone-error');
+    const emailError = document.getElementById('email-error');
     const passwordError = document.getElementById('password-error');
     const rePasswordError = document.getElementById('rePassword-error');
     
@@ -96,6 +99,7 @@
     function validateForm() {
         const name = nameInput.value;
         const phone = phoneInput.value;
+        const email = emailInput.value;
         const password = passwordInput.value;
         const rePassword = rePasswordInput.value;
         
@@ -125,6 +129,18 @@
             phoneError.classList.add('d-none');
         }
 
+        if(!email) {
+            emailError.textContent = "Vui lòng nhập địa chỉ email.";
+            emailError.classList.remove('d-none');
+            hasError = true;
+        } else if (!isValidEmail(email)) {
+            emailError.textContent = "Địa chỉ email không đúng định dạng.";
+            emailError.classList.remove('d-none');
+            hasError = true;
+        } else {
+            emailError.classList.add('d-none');
+        }
+
         if (password !== rePassword) {
             rePasswordError.textContent = "Mật khẩu xác nhận không khớp.";
             rePasswordError.classList.remove('d-none');
@@ -146,8 +162,14 @@
         }
     }
 
+    function isValidEmail(email) {
+        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        return emailRegex.test(email);
+    }
+
     nameInput.addEventListener('keyup', validateForm);
     phoneInput.addEventListener('keyup', validateForm);
+    emailInput.addEventListener('keyup', validateForm);
     passwordInput.addEventListener('keyup', validateForm);
     rePasswordInput.addEventListener('keyup', validateForm);
     registerForm.addEventListener('submit', validateForm);
