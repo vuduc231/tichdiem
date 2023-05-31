@@ -72,10 +72,16 @@ class ApiServices
         return json_decode((string)$response->getBody()->getContents(), true);
     }
 
-    public function contact($data)
+    public function contact($name, $phone, $email, $comment)
     {
-        $response = $this->client->post($this->apiUrl . '/help/send');
-        return json_decode($response->getBody()->getContents(), true);
+        $url = $this->apiUrl . '/help/send';
+        $response = $this->client->post($url, [
+            'name' => $name,
+            'phone' => $phone,
+            'email' => $email,
+            'comment' => $comment
+        ]);
+        return json_decode((string)$response->getBody()->getContents(), true);
     }
 
     public function changeGift($customer_id, $gift_id, $type)

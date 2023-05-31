@@ -29,22 +29,9 @@ class ContactController extends Controller
     public function contactApi(Request $request)
     {
         try {
-
-            $data = $request->validate([
-                'name' => 'nullable',
-                'phone' => 'nullable',
-                'email' => 'nullable',
-                'messenger' => 'nullable',
-            ]);
-
-            $contact = $this->apiServices->contact($data);
-            if ($contact) {
-                $successMsg = "Data has been successfully submitted.";
-                return redirect()->route('contact')->with('success', $successMsg);
-            } else {
-                $errorMsg = "Failed to submit the data.";
-                return back()->with('contactError', $errorMsg);
-            }
+            $contact = $this->apiServices->contact($request->name,$request->phone,$request->email,$request->comment,);
+            alert()->success('Gửi yêu cầu đổi mật khẩu thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!')->timerProgressBar()->autoClose(5000)->showConfirmButton('Xác nhận');
+            return redirect()->back();
             
         } catch (Exception $e) {
 
