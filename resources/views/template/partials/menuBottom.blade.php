@@ -20,7 +20,7 @@
         @csrf
         <button class="fs-5 bg-transparent border-0" type="submit">
             <img src="{{ asset('/assets/img/user-48.png') }}" alt="">
-            <div style="padding-top: 6px;">Đăng xuất</div>
+            <div style="padding-top: 4px;">Đăng xuất</div>
         </butt>
     </form>
     @else

@@ -64,7 +64,7 @@ Route::group(['middleware' => 'auth.login:user'], function () {
 Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');
 Route::post('/lien-he', [ContactController::class, 'contactApi'])->name('contactApi');
 
-// Route 404 - Xử lý URL không tồn tại
-// Route::fallback(function () {
-//     return response()->view('404', [], 404);
-// });
+// 404
+Route::fallback(function () {
+    return view('404');
+});

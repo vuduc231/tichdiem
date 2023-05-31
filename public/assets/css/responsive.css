@@ -17,6 +17,10 @@
         transition-property: left, visibility;
     }
 
+    .header_submenu-items {
+        width: 100%;
+    }
+
     .overlay_menu-btn.active {
         left: 0;
         visibility: visible;
@@ -321,7 +325,7 @@
         text-align: left;
     }
     .footer {
-        padding-bottom: 70px;
+        padding-bottom: 64px;
     }
 
     #navbar {

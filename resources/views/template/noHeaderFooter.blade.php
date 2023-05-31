@@ -7,22 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title') - Doppelherz</title>
 
-    <!-- Favicon -->
+    {{-- Favicon --}}
     <link rel="shortcut icon" href="{{ asset('/assets/img/favicon.ico') }}" />
 
-    <!-- Font Awesome -->
+    {{-- Font Awesome --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 
-    <!-- Google Fonts -->
+    {{-- Google Fonts --}}
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
 
-    <!-- Plugins -->
+    {{-- Plugins --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
-    <!-- Base CSS -->
+    {{-- Base CSS --}}
     <link rel="stylesheet" href="{{ asset('/assets/css/normalize.css') }}" />
     <link rel="stylesheet" href="{{ asset('/assets/css/variables.css') }}" />    
     <link rel="stylesheet" href="{{ asset('/assets/css/styleNoHeaderFooter.css') }}" />
@@ -32,19 +32,20 @@
 
 <body>
     <div class="wrapper">
+        {{-- Main Layout --}}
         <main id="main_layout">
             @yield('main_section')
         </main>
     </div>
 
-    <!-- Vendor JS Files -->
+    {{--  Vendor JS Files --}}
     <script type="text/javascript" src="{{ asset('/assets/plugins/jquery/jquery-3.6.0.min.js') }}"></script>
 
-    <!-- Plugins -->
+    {{-- Plugins --}}
     <script type="text/javascript" src="{{ asset('/assets/plugins/mdb/mdb.min.js') }}"></script>
 
 
-    <!-- Base JS -->
+    {{-- Base JS --}}
     <script type="text/javascript" src="{{ asset('/assets/js/style.js') }}"></script>
 
     @include('sweetalert::alert')

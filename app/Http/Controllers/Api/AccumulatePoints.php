@@ -29,12 +29,14 @@ class AccumulatePoints extends Controller
             return redirect('/the-le');
         }
         $product = $this->apiServices->product($product_id);
+        $getPromotion = $this->apiServices->getPromotion();
         // dd($product);
             
         return view('page.accumulatePoints.accumulatePoints')
         // ->with('infoQr', $infoQr)
         ->with('promotion_id', $promotion_id)
         ->with('special_code', $special_code)
+        ->with('getPromotion', $getPromotion)
         ->with('product', $product);
     }
 
@@ -69,9 +71,13 @@ class AccumulatePoints extends Controller
                 alert()->error($errorMsg)->timerProgressBar()->autoClose(5000)->showConfirmButton('Xác nhận');
                 return redirect()->back();
             } else {
+                Session::forget('getUser');
+                $userId = $request->user;
+                $getUserApi = $this->apiServices->getUser($userId);
+                $request->session()->put('getUser', $getUserApi);
                 $accumulatePoint = $this->apiServices->accumulatePoint($request->special_code, $request->user, $request->product_id, $request->promotion_id);
-                alert()->success("Tích điểm thành công!")->timerProgressBar()->autoClose(5000)->showConfirmButton('Xác nhận');
-                return redirect()->back();
+                alert();
+                return redirect()->back()->with('showHistory', true);
             }
             // dd($infoQr['status']);
             

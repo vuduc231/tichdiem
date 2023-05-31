@@ -160,5 +160,10 @@ class ApiServices
         $response = $this->client->get($this->apiUrl . '/content/list');
         return json_decode($response->getBody()->getContents(), true);
     }
+    public function getPromotion()
+    {
+        $response = $this->client->get($this->apiUrl . '/promotion');
+        return json_decode($response->getBody()->getContents(), true);
+    }
     
 }

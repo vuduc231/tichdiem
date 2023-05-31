@@ -19,10 +19,11 @@ body {
     user-select: none;
 }
 .acculatePoint_wrapper::before {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../img/gioithieubg.webp);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+        url(../img/gioithieubg.webp);
     background-size: cover;
     bottom: -5px;
-    content: '';
+    content: "";
     /* -webkit-filter: blur(5px); */
     /* filter: blur(5px); */
     left: -5px;
@@ -35,7 +36,7 @@ body {
     /* background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../img/gioithieubg.webp); */
     background-size: cover;
     bottom: -5px;
-    content: '';
+    content: "";
     -webkit-filter: blur(0);
     filter: blur(0);
     z-index: 1;
@@ -153,6 +154,35 @@ body {
     background-color: #dc2626;
 }
 
+/* 404 */
+.errorPage_content {
+    --width: 550px;
+    max-width: calc(100vw - 32px);
+    min-height: 400px;
+    position: relative;
+    width: var(--width);
+}
+
+.errorPage-heading {
+    font-size: 12.8rem;
+    font-weight: bold;
+    color: #dc2626;
+}
+
+.errorPage-title {
+    font-size: var(--fz-24);
+    font-weight: bold;
+}
+
+.errorPage-desc {
+    font-size: var(--fz-18);
+    font-weight: 500;
+}
+
+.errorPage-btn {
+    font-size: var(--fz-16);
+    text-transform: initial;
+}
 /* Mobile */
 @media (max-width: 739px) {
     .acculatePoint_body-wrapper {
@@ -161,5 +191,35 @@ body {
     .acculatePoint_body-left {
         display: flex;
         justify-content: center;
+    }
+    .acculatePoint_wrapper {
+        height: 100%;
+        min-height: 100vh;
+        max-height: 100%;
+    }
+    .acculatePoint_title-top {
+        font-size: var(--fz-18);
+    }
+    .acculatePoint_body-heading-wrapper {
+        font-size: var(--fz-18);
+    }
+    .acculatePoint_title-bottom {
+        font-size: var(--fz-24);
+    }
+    .acculatePoint_actions {
+        margin: 30px 0;
+    }
+    .acculatePoint_body-img {
+        width: 130px;
+    }
+    .acculatePoint_logo {
+        padding: 30px 0 20px;
+    }
+    .acculatePoint_body-term-wrapper {
+        border-bottom: 1px solid #f6cdcd;
+        padding-bottom: 10px;
+    }
+    .acculatePoint_body {
+        padding: 10px;
     }
 }

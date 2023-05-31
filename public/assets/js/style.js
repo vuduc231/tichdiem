@@ -1,27 +1,43 @@
 // jquey for toggle dropdown menu
 $(document).ready(function () {
     if ($(window).width() < 1023) {
-        $('.header_menu-subbtn').click(function () {
-            $(this).next('.header_submenu-list').slideToggle();
+        $(".header_menu-subbtn").click(function () {
+            $(this).next(".header_submenu-list").slideToggle();
         });
 
         // Click show/hidden menu for mobile
-        var menuList = document.querySelector('.header_menu-list');
-        var menuCloseBtn = document.querySelector('.close_menu-btn');
-        var menuOpenBtn = document.querySelector('.open_menu-btn');
-        var overlayBtn = document.querySelector('.overlay_menu-btn');
+        var menuList = document.querySelector(".header_menu-list");
+        var menuCloseBtn = document.querySelector(".close_menu-btn");
+        var menuOpenBtn = document.querySelector(".open_menu-btn");
+        var overlayBtn = document.querySelector(".overlay_menu-btn");
 
-        menuOpenBtn.addEventListener('click', () => {
-            menuList.classList.add('active');
-            overlayBtn.classList.add('active');
+        menuOpenBtn.addEventListener("click", () => {
+            menuList.classList.add("active");
+            overlayBtn.classList.add("active");
         });
-        menuCloseBtn.addEventListener('click', () => {
-            menuList.classList.remove('active');
-            overlayBtn.classList.remove('active');
+        menuCloseBtn.addEventListener("click", () => {
+            menuList.classList.remove("active");
+            overlayBtn.classList.remove("active");
         });
-        overlayBtn.addEventListener('click', () => {
-            menuList.classList.remove('active');
-            overlayBtn.classList.remove('active');
+        overlayBtn.addEventListener("click", () => {
+            menuList.classList.remove("active");
+            overlayBtn.classList.remove("active");
         });
     }
 });
+
+// When the user scrolls down 20px from the top of the document, slide down the navbar
+window.onscroll = function () {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+    ) {
+        document.getElementById("navbar").style.bottom = "0";
+    } else {
+        document.getElementById("navbar").style.bottom = "-64px";
+    }
+}

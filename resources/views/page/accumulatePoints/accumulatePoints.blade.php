@@ -36,6 +36,10 @@
                             <div class="acculatePoint_body-term-wrapper">
                                 Bằng việc bấm "Tích điểm ngay" tôi đồng ý với <a class="fw-bold" href="{{ route('terms') }}" target="_blank">điều khoản</a> và <a class="fw-bold" href="{{ route('rule') }}" target="_blank">quy định</a> của chương trình
                             </div>
+
+                            <div>
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="acculatePoint_body-bottom">
@@ -49,9 +53,35 @@
                 @csrf
                 <input type="hidden" name="special_code" value="{{ $special_code }}">
                 <input type="hidden" name="product_id" value="{{ $product['id'] }}">
-                <button type="submit" class="btn btn-danger fs-3 p-4">Tích điểm ngay</button>
+                <button type="submit" class="btn btn-danger fs-3 p-4" style="text-transform: none; background-color:#f33444">Tích điểm ngay</button>
             </form>
             
         </div>
     </div>
+
+    
 @endsection
+
+@if(session('showHistory'))
+    @foreach($getPromotion as $value)
+        @if($value['product_id'] == $product['id'])
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Chúc mừng',
+                        html: "<div class='fs-5'>Sản phẩm của bạn đã được tích <b class='text-danger'>{{ $value['valueSale'] }}</b> điểm vào tài khoản và sẵn sàng để đổi quà. Cảm ơn bạn đã tham gia chương trình</div>",
+                        timerProgressBar: true,
+                        timer: 10000,
+                        showConfirmButton: true,
+                        confirmButtonText: 'Lịch sử tích điểm'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '{{ route('history') }}';
+                        }
+                    });
+                });
+            </script>
+        @endif
+    @endforeach
+@endif

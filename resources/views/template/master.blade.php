@@ -187,23 +187,7 @@
     <script type="text/javascript" src="{{ asset('/assets/js/style.js') }}"></script>
 
     @include('sweetalert::alert')
-    <script>
-        // When the user scrolls down 20px from the top of the document, slide down the navbar
-        window.onscroll = function () {
-          scrollFunction();
-        };
-  
-        function scrollFunction() {
-          if (
-            document.body.scrollTop > 20 ||
-            document.documentElement.scrollTop > 20
-          ) {
-            document.getElementById('navbar').style.bottom = '0';
-          } else {
-            document.getElementById('navbar').style.bottom = '-70px';
-          }
-        }
-      </script>
+
     @yield('scripts')
 
 </body>
