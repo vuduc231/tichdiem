@@ -94,7 +94,6 @@
     </div>
 </section>
 <!-- ======= END EXCHANGE GIFT ======= -->
-@endsection
 
 {{-- Modal Exhange Gift --}}
 @foreach($thongTinQuaTang as $value)
@@ -200,3 +199,6 @@
     </div>
 </div>
 @endforeach
+
+@endsection
+

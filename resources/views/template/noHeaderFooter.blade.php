@@ -8,7 +8,7 @@
     <title>@yield('title') - Doppelherz</title>
 
     {{-- Favicon --}}
-    <link rel="shortcut icon" href="{{ asset('/assets/img/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ secure_asset('/assets/img/favicon.ico') }}" />
 
     {{-- Font Awesome --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -23,9 +23,9 @@
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
     {{-- Base CSS --}}
-    <link rel="stylesheet" href="{{ asset('/assets/css/normalize.css') }}" />
-    <link rel="stylesheet" href="{{ asset('/assets/css/variables.css') }}" />    
-    <link rel="stylesheet" href="{{ asset('/assets/css/styleNoHeaderFooter.css') }}" />
+    <link rel="stylesheet" href="{{ secure_asset('/assets/css/normalize.css') }}" />
+    <link rel="stylesheet" href="{{ secure_asset('/assets/css/variables.css') }}" />    
+    <link rel="stylesheet" href="{{ secure_asset('/assets/css/styleNoHeaderFooter.css') }}" />
 
     @yield('style')
 </head>
@@ -39,14 +39,14 @@
     </div>
 
     {{--  Vendor JS Files --}}
-    <script type="text/javascript" src="{{ asset('/assets/plugins/jquery/jquery-3.6.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ secure_asset('/assets/plugins/jquery/jquery-3.6.0.min.js') }}"></script>
 
     {{-- Plugins --}}
-    <script type="text/javascript" src="{{ asset('/assets/plugins/mdb/mdb.min.js') }}"></script>
+    <script type="text/javascript" src="{{ secure_asset('/assets/plugins/mdb/mdb.min.js') }}"></script>
 
 
     {{-- Base JS --}}
-    <script type="text/javascript" src="{{ asset('/assets/js/style.js') }}"></script>
+    <script type="text/javascript" src="{{ secure_asset('/assets/js/style.js') }}"></script>
 
     @include('sweetalert::alert')
 

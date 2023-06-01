@@ -406,7 +406,7 @@
 
 @section('scripts')
     <!-- Plugins -->
-    <script type="text/javascript" src="{{ asset('/assets/plugins/slick/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ secure_asset('/assets/plugins/slick/slick.min.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('.slider_wrapper').slick({

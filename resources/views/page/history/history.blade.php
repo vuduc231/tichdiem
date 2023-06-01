@@ -80,7 +80,7 @@
                             <div class="history_user-mobile-wrapper">
                                 <div class="history_user-mobile-items align-items-center">
                                     <div class="history_user-mobile-left">
-                                        <img src="{{ asset('/assets/img/user.png') }}" alt="">
+                                        <img src="{{ secure_asset('/assets/img/user.png') }}" alt="">
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Họ và tên</div>
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
                                     <div class="history_user-mobile-left">
-                                        <img src="{{ asset('/assets/img/phone.png') }}" alt="">
+                                        <img src="{{ secure_asset('/assets/img/phone.png') }}" alt="">
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Số điện thoại</div>
@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
                                     <div class="history_user-mobile-left">
-                                        <img src="{{ asset('/assets/img/email.png') }}" alt="">
+                                        <img src="{{ secure_asset('/assets/img/email.png') }}" alt="">
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Email</div>
@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
                                     <div class="history_user-mobile-left">
-                                        <img src="{{ asset('/assets/img/address.png') }}" alt="">
+                                        <img src="{{ secure_asset('/assets/img/address.png') }}" alt="">
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Địa chỉ</div>
@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
                                     <div class="history_user-mobile-left">
-                                        <img src="{{ asset('/assets/img/calendar.png') }}" alt="">
+                                        <img src="{{ secure_asset('/assets/img/calendar.png') }}" alt="">
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Ngày tham gia</div>
@@ -127,7 +127,7 @@
                                 </div>
                                 <div class="history_user-mobile-items align-items-center">
                                     <div class="history_user-mobile-left">
-                                        <img src="{{ asset('/assets/img/summary.png') }}" alt="">
+                                        <img src="{{ secure_asset('/assets/img/summary.png') }}" alt="">
                                     </div>
                                     <div class="history_user-mobile-right">
                                         <div>Tổng diểm tích lũy</div>
@@ -170,7 +170,7 @@
                                     aria-labelledby="ex1-tab-1">
                                     @if (!$historyPoint)
                                         <div class="history_empty">
-                                            <img class="history_empty-img"src="{{ asset('/assets/img/empty-order.webp') }}"
+                                            <img class="history_empty-img"src="{{ secure_asset('/assets/img/empty-order.webp') }}"
                                                 alt="">
                                             <div class="history_empty-title">Chưa có lịch sử tích điểm</div>
                                         </div>
@@ -223,7 +223,7 @@
                                 <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
                                     @if (!$historyExchange)
                                         <div class="history_empty">
-                                            <img class="history_empty-img"src="{{ asset('/assets/img/empty-order.webp') }}"
+                                            <img class="history_empty-img"src="{{ secure_asset('/assets/img/empty-order.webp') }}"
                                                 alt="">
                                             <div class="history_empty-title">Chưa đổi quà</div>
                                         </div>

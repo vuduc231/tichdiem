@@ -3,7 +3,7 @@
         <div class="header_wrapper">
             <div class="header_logo">
                 <a href="{{ route('home') }}" class="header_logo-link">
-                    <img src="{{ asset('/assets/img/logo.webp') }}" alt="" class="header_logo-img" />
+                    <img src="{{ secure_asset('/assets/img/logo.webp') }}" alt="" class="header_logo-img" />
                 </a>
             </div>
             <div class="header_menu">

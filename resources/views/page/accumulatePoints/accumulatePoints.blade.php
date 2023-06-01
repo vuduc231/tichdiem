@@ -8,7 +8,7 @@
             <div class="acculatePoint_content">
                 <div class="acculatePoint_header">
                     <a href="/">
-                        <img src="{{ asset('/assets/img/logo.webp') }}" alt="logo" class="acculatePoint_logo" />
+                        <img src="{{ secure_asset('/assets/img/logo.webp') }}" alt="logo" class="acculatePoint_logo" />
                     </a>
                     <div class="acculatePoint_title-top">Cảm ơn quý khách đã tin tưởng sử dụng sản phẩm</div>
                     <div class="acculatePoint_title-bottom">Doppelherz</div>
