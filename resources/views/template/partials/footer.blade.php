@@ -32,7 +32,7 @@
                     </ul>
                 </div>
                 <div class="col">
-                    <img class="footer_top-logo" src="{{ secure_asset('/assets/img/logo.webp') }}" alt="" />
+                    <img class="footer_top-logo" src="{{ asset('/assets/img/logo.webp') }}" alt="" />
                 </div>
             </div>
         </div>

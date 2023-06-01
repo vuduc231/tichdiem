@@ -8,7 +8,7 @@
     <title>@yield('title') - Doppelherz</title>
 
     {{-- Favicon --}}
-    <link rel="shortcut icon" href="{{ secure_asset('/assets/img/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('/assets/img/favicon.ico') }}" />
 
     {{-- Font Awesome --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -17,15 +17,15 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
 
     {{-- Plugins --}}
-    <link href="{{ secure_asset('/assets/plugins/mdb/mdb.min.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset('/assets/plugins/slick/slick.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset('/assets/plugins/slick/slick-theme.css') }}" />
+    <link href="{{ asset('/assets/plugins/mdb/mdb.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/plugins/slick/slick.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/plugins/slick/slick-theme.css') }}" />
 
     {{-- Base CSS --}}
-    <link rel="stylesheet" href="{{ secure_asset('/assets/css/normalize.css') }}" />
-    <link rel="stylesheet" href="{{ secure_asset('/assets/css/variables.css') }}" />
-    <link rel="stylesheet" href="{{ secure_asset('/assets/css/style.css') }}" />
-    <link rel="stylesheet" href="{{ secure_asset('/assets/css/responsive.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/assets/css/normalize.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/assets/css/variables.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/assets/css/responsive.css') }}" />
 
     @yield('style')
 </head>
@@ -77,8 +77,8 @@
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-12 col-xl-6">
                                         <div class="loginRegister_tabs-img">
-                                            <img class="d-none d-md-none d-xl-block" src="{{ secure_asset('/assets/img/Banner-5.png') }}" alt="">
-                                            <img class="d-block d-md-block d-xl-none mb-5" src="{{ secure_asset('/assets/img/Banner-6.png') }}" alt="">
+                                            <img class="d-none d-md-none d-xl-block" src="{{ asset('/assets/img/Banner-5.png') }}" alt="">
+                                            <img class="d-block d-md-block d-xl-none mb-5" src="{{ asset('/assets/img/Banner-6.png') }}" alt="">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-12 col-xl-6 d-flex flex-column justify-content-center">
@@ -113,8 +113,8 @@
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-12 col-xl-6">
                                         <div class="loginRegister_tabs-img">
-                                            <img class="d-none d-md-none d-xl-block" src="{{ secure_asset('/assets/img/Banner-5.png') }}" alt="">
-                                            <img class="d-block d-md-block d-xl-none mb-5" src="{{ secure_asset('/assets/img/Banner-6.png') }}" alt="">
+                                            <img class="d-none d-md-none d-xl-block" src="{{ asset('/assets/img/Banner-5.png') }}" alt="">
+                                            <img class="d-block d-md-block d-xl-none mb-5" src="{{ asset('/assets/img/Banner-6.png') }}" alt="">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-12 col-xl-6 d-flex flex-column justify-content-center">
@@ -178,13 +178,13 @@
     
 
     {{--  Vendor JS Files --}}
-    <script type="text/javascript" src="{{ secure_asset('/assets/plugins/jquery/jquery-3.6.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/assets/plugins/jquery/jquery-3.6.0.min.js') }}"></script>
 
     {{-- Plugins --}}
-    <script type="text/javascript" src="{{ secure_asset('/assets/plugins/mdb/mdb.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/assets/plugins/mdb/mdb.min.js') }}"></script>
 
     {{-- Base JS --}}
-    <script type="text/javascript" src="{{ secure_asset('/assets/js/style.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/assets/js/style.js') }}"></script>
 
     @include('sweetalert::alert')
 

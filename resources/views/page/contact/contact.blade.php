@@ -9,8 +9,8 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-12 col-xl-5">
                     <div class="loginRegister_img m-auto">
-                        <img class="d-none d-md-none d-xl-block" src="{{ secure_asset('/assets/img/Banner-5.png') }}" alt="">
-                        <img class="d-block d-md-block d-xl-none" src="{{ secure_asset('/assets/img/Banner-6.png') }}"
+                        <img class="d-none d-md-none d-xl-block" src="{{ asset('/assets/img/Banner-5.png') }}" alt="">
+                        <img class="d-block d-md-block d-xl-none" src="{{ asset('/assets/img/Banner-6.png') }}"
                             alt="">
                     </div>
                 </div>
