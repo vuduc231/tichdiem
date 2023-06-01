@@ -25,8 +25,11 @@ class GiftController extends Controller
     public function index(Request $request)
     {
         $thongTinQuaTang = $this->apiServices->getThongTinQuaTang();
-        // dd($thongTinQuaTang);
-        return view('page.gift.gift')->with('thongTinQuaTang', $thongTinQuaTang);
+        // $getProductList = $this->apiServices->getProductList();
+        // dd($getProductList, $thongTinQuaTang);
+        return view('page.gift.gift')
+        // ->with('getProductList', $getProductList)
+        ->with('thongTinQuaTang', $thongTinQuaTang);
     }
     
     public function changeGift(Request $request)

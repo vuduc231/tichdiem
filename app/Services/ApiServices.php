@@ -126,6 +126,19 @@ class ApiServices
         $response = $this->client->get($this->apiUrl . '/thongtinquatang');
         return json_decode($response->getBody()->getContents(), true);
     }
+    
+    public function getGift()
+    {
+        $response = $this->client->get($this->apiUrl . '/get-gift');
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    public function getProductList()
+    {
+        $response = $this->client->get($this->apiUrl . '/get-product');
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
     public function product($id)
     {
         $response = $this->client->get($this->apiUrl . '/product/'. $id);

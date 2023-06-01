@@ -179,12 +179,16 @@
             <div class="card">
                 <div class="card-body card-body_home">
                     <div class="product_title-wrapper mb-3">
-                        <div class="product_title">
-                            <span>NHÓM SẢN PHẨM DÀNH CHO PHỤ NỮ</span>
-                        </div>
-                        <div class="product_seemore">
-                            <a href="https://doppelherz.vn/san-pham/" target="_blank" >Xem thêm</a>
-                        </div>
+                        @foreach($getContentList['data'] as $title_woman)
+                            @if ($title_woman['positionContent'] === 'banner_nhomsp_1')
+                                <div class="product_title">
+                                    <span>{{ $title_woman['typeContent'] ?? '#' }}</span>
+                                </div>
+                                <div class="product_seemore">
+                                    <a href="{{ $title_woman['linkContent'] ?? '#' }}" target="_blank" >Xem thêm</a>
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
                     <div class="row">
                         <div class="col">
@@ -228,12 +232,16 @@
             <div class="card">
                 <div class="card-body card-body_home">
                     <div class="product_title-wrapper mb-3">
-                        <div class="product_title">
-                            <span>NHÓM SẢN PHẨM DÀNH CHO NAM GIỚI</span>
-                        </div>
-                        <div class="product_seemore">
-                            <a href="https://doppelherz.vn/san-pham/" target="_blank" >Xem thêm</a>
-                        </div>
+                        @foreach($getContentList['data'] as $title_man)
+                            @if ($title_man['positionContent'] === 'banner_nhomsp_2')
+                                <div class="product_title">
+                                    <span>{{ $title_man['typeContent'] ?? '#' }}</span>
+                                </div>
+                                <div class="product_seemore">
+                                    <a href="{{ $title_man['linkContent'] ?? '#' }}" target="_blank" >Xem thêm</a>
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
                     <div class="row">
                         <div class="col">
@@ -277,12 +285,16 @@
             <div class="card">
                 <div class="card-body card-body_home">
                     <div class="product_title-wrapper mb-3">
-                        <div class="product_title">
-                            <span>NHÓM SẢN PHẨM DÀNH CHO TRẺ EM</span>
-                        </div>
-                        <div class="product_seemore">
-                            <a href="https://doppelherz.vn/san-pham/" target="_blank" >Xem thêm</a>
-                        </div>
+                        @foreach($getContentList['data'] as $title_child)
+                            @if ($title_child['positionContent'] === 'banner_nhomsp_3')
+                                <div class="product_title">
+                                    <span>{{ $title_child['typeContent'] ?? '#' }}</span>
+                                </div>
+                                <div class="product_seemore">
+                                    <a href="{{ $title_child['linkContent'] ?? '#' }}" target="_blank" >Xem thêm</a>
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
                     <div class="row">
                         <div class="col">

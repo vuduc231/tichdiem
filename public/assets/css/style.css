@@ -386,6 +386,7 @@
 .product_title {
     font-size: var(--fz-30);
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 .product_seemore a {
@@ -790,12 +791,13 @@
     user-select: none;
 }
 .exchange_gift-items {
-    overflow: hidden;
+    /* overflow: hidden; */
     text-align: center;
     padding: 10px 20px;
     border-radius: var(--border-radius-main);
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
         rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    position: relative;
 }
 .exchange_gift-img {
     margin-bottom: 10px;
@@ -833,6 +835,14 @@
     font-size: var(--fz-14);
     text-transform: none;
     margin-bottom: 10px;
+}
+
+.exchange_gift-items-info {
+    background: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
 }
 
 /********* END EXCHANGE GIFT *********/

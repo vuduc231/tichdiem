@@ -5,6 +5,7 @@
     usort($thongTinQuaTang, function($a, $b) {
         return $a['valuePromotion'] <=> $b['valuePromotion'];
     });
+    
 @endphp
 
 @section('main_section')
@@ -39,12 +40,6 @@
                                     <div class="gift_scroll-img">
                                         <img class="gift_scroll-img--hasBox" src="{{ $value['image'] }}" alt="{{ $value['name'] }}" />
                                     </div>
-                                    <!-- <div class="gift_scroll-showDetail">
-                                        <img src="/assets/img/items.webp" alt="" />
-                                        <div class="gift_scroll-showDetail--title">
-                                            <span>Phần quà: Bộ gồm 2 quyển tập tô cho bé</span>
-                                        </div>
-                                    </div> -->
                                 </div>
                                 
                             </div>
@@ -86,6 +81,13 @@
                                 <button class="btn btn-danger px-4" data-mdb-toggle="modal" data-mdb-target="#exchangeGift-{{ $value['id'] }}">Đổi quà</button>
                             </div>
                         </div>
+                        {{-- @foreach($getProductList as $p)
+                            @if ($p['id'] == $value['id'])
+                                <div class="exchange_gift-items-info">
+                                    {{ $p['name'] }}
+                                </div>
+                            @endif
+                        @endforeach --}}
                     </div>
                     @endforeach
                 </div>
