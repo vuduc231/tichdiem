@@ -10,10 +10,9 @@ use Illuminate\Http\Request;
 class PrivacyController extends Controller
 {
     //contructor
-    public function __construct()
+    public function __construct(ApiServices $apiServices)
     {
-        // $this->middleware('auth');
-        // $this->dwtServices = new DwtServices();
+        $this->apiServices = $apiServices;
     }
     /**
      * Display a listing of the resource.
@@ -22,7 +21,8 @@ class PrivacyController extends Controller
      */
     public function index()
     {
-        return view('page.privacy.privacy');
+        $getPrivacy = $this->apiServices->getPageContent('privacy');
+        return view('page.privacy.privacy',compact('getPrivacy'));
     }
 
     /**

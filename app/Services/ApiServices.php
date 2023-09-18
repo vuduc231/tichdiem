@@ -126,7 +126,7 @@ class ApiServices
         $response = $this->client->get($this->apiUrl . '/thongtinquatang');
         return json_decode($response->getBody()->getContents(), true);
     }
-    
+
     public function getGift()
     {
         $response = $this->client->get($this->apiUrl . '/get-gift');
@@ -184,5 +184,10 @@ class ApiServices
         $response = $this->client->get($this->apiUrl . '/promotion');
         return json_decode($response->getBody()->getContents(), true);
     }
-    
+    public function getPageContent($title)
+    {
+        $response = $this->client->get($this->apiUrl . '/page/content/'.$title.'/get');
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
 }

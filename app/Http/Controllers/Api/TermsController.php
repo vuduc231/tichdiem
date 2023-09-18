@@ -9,12 +9,16 @@ use Illuminate\Http\Request;
 
 class TermsController extends Controller
 {
-    //contructor
-    public function __construct()
+    public function __construct(ApiServices $apiServices)
     {
+        $this->apiServices = $apiServices;
+    }
+    //contructor
+//    public function __construct()
+//    {
         // $this->middleware('auth');
         // $this->dwtServices = new DwtServices();
-    }
+//    }
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +26,8 @@ class TermsController extends Controller
      */
     public function index()
     {
-        return view('page.terms.terms');
+        $getTerms = $this->apiServices->getPageContent('terms');
+        return view('page.terms.terms',compact('getTerms'));
     }
 
     /**

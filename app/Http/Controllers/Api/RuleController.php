@@ -10,8 +10,9 @@ use Illuminate\Http\Request;
 class RuleController extends Controller
 {
     //contructor
-    public function __construct()
+    public function __construct(ApiServices $apiServices)
     {
+        $this->apiServices = $apiServices;
         // $this->middleware('auth');
         // $this->dwtServices = new DwtServices();
     }
@@ -22,7 +23,8 @@ class RuleController extends Controller
      */
     public function index()
     {
-        return view('page.rule.rule');
+        $getRule = $this->apiServices->getPageContent('rule');
+        return view('page.rule.rule',compact('getRule'));
     }
 
     /**
