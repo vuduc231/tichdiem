@@ -71,7 +71,6 @@ class ApiServices
         ]);
         return json_decode((string)$response->getBody()->getContents(), true);
     }
-
     public function contact($name, $phone, $email, $comment)
     {
         $url = $this->apiUrl . '/help/send';
